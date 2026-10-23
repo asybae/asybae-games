@@ -166,7 +166,61 @@
  @media(max-width:800px){.hero{min-height:auto;grid-template-columns:1fr;gap:0;padding:62px 0}.hero-copy{font-size:15px}.visual{min-height:370px;margin-top:8px}.game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.intro-row{align-items:flex-start;flex-direction:column}.section-note{max-width:500px}.about{grid-template-columns:1fr}.about-mark{text-align:left}}
  @media(max-width:520px){.shell{width:calc(100% - 32px)}header{padding:20px 0}.wordmark{font-size:11px;letter-spacing:1.8px}nav{gap:14px;font-size:10px}nav a:last-child{display:none}h1{font-size:clamp(34px,8.5vw,44px);line-height:.94;letter-spacing:-.8px;margin:22px 0}.hero{padding:49px 0 54px}.visual{min-height:340px}.camera-float{left:0;top:12%;transform:scale(.78) rotate(-8deg);transform-origin:left top}.phone-float{right:0;top:7%;transform:scale(.82) rotate(8deg);transform-origin:right top}.viewfinder{height:145px}.frame-front{width:72%;}.frame-back{width:75%}.sticker{right:0;bottom:9%;font-size:9px}.game-grid{grid-template-columns:1fr;gap:12px}.game-card{min-height:220px}.game-mark{margin:15px 0}.about{margin-bottom:56px;padding:25px}.choices{grid-template-columns:1fr}footer{flex-direction:column}}
  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
- </style>
+ 
+ /* Mobile layout — aligned with the ASYBAE portfolio system */
+ @media (max-width: 600px) {
+   .shell { width: calc(100% - 32px); }
+   header { gap: 8px; padding: 20px 14px; }
+   .wordmark { font-size: 11px; letter-spacing: 1.5px; }
+   nav { gap: 0; font-size: 10px; }
+   nav a { padding: 0 6px; white-space: nowrap; letter-spacing: .4px; }
+   nav a:last-child { display: none; }
+   .hero { display: flex; min-height: auto; padding: 54px 0 42px; gap: 0; }
+   .eyebrow { font-size: 9px; line-height: 1.7; letter-spacing: 2.2px; }
+   h1 { font-size: clamp(40px, 10.5vw, 54px); line-height: .94; letter-spacing: -2.4px; margin: 22px 0 28px; overflow-wrap: normal; }
+   .heading-second-line { white-space: normal; }
+   .hero-copy { font-size: 15px; line-height: 1.7; }
+   .visual { min-height: 300px; margin: 0 0 20px; }
+   .intro-row { padding-top: 26px; gap: 14px; }
+   .section-title { font-size: clamp(36px, 9vw, 48px); line-height: 1; letter-spacing: -1.8px; }
+   .section-note { font-size: 13px; line-height: 1.65; }
+   .games { padding: 18px 0 48px; }
+   .game-grid, .game-grid-two { grid-template-columns: minmax(0, 1fr) !important; gap: 12px; margin-top: 22px; }
+   .game-card { width: 100%; min-width: 0; min-height: 0; padding: 24px 22px; border-radius: 22px; }
+   .game-index { font-size: 9px; letter-spacing: 2px; line-height: 1.7; }
+   .game-mark { width: 48px; height: 48px; margin: 18px 0 16px; }
+   .game-card h3 { font-size: 25px; line-height: 1.15; margin-bottom: 10px; }
+   .game-card p { font-size: 14px; line-height: 1.65; margin-bottom: 18px; overflow-wrap: anywhere; }
+   .level-preview { flex-wrap: wrap; }
+   .game-card .play { min-height: 48px; padding: 12px 18px; font-size: 13px; }
+   .about { grid-template-columns: minmax(0,1fr); gap: 22px; margin: 0 0 44px; padding: 28px 22px; border-radius: 22px; }
+   .about h2 { font-size: clamp(34px, 9vw, 46px); line-height: 1.02; letter-spacing: -1.8px; }
+   .about p { font-size: 14px; line-height: 1.65; }
+   .about-mark { font-size: clamp(40px, 11vw, 58px); line-height: .98; letter-spacing: -2px; text-align: left; overflow-wrap: anywhere; }
+   footer { flex-direction: column; gap: 8px; padding: 20px 0 28px; font-size: 9px; line-height: 1.6; letter-spacing: .8px; }
+   .sim-dialog { width: calc(100% - 12px); max-width: none; max-height: calc(100dvh - 12px); margin: auto; border-radius: 22px; overflow-y: auto; }
+   .sim-inner { padding: 18px 16px max(18px, env(safe-area-inset-bottom)); }
+   .sim-inner h2 { font-size: clamp(27px, 7.5vw, 36px); line-height: 1.04; letter-spacing: -1.3px; margin: 17px 0 8px; }
+   .sim-inner p { font-size: 13px; line-height: 1.6; }
+   .sim-stage { grid-template-columns: minmax(0,1fr); gap: 10px; margin: 14px 0; }
+   .sim-scene { width: 100%; min-height: 0; aspect-ratio: 4 / 3; border-radius: 16px; }
+   .sim-brief { padding: 14px; }
+   .sim-progress-row { margin-top: 14px; }
+   .sim-task { margin-top: 14px; padding: 16px 14px; border-radius: 18px; }
+   .sim-task h3 { font-size: 19px; line-height: 1.25; }
+   .sim-choices, .choices { grid-template-columns: minmax(0,1fr) !important; gap: 8px; }
+   .sim-choices .choice, .choice { min-height: 48px; padding: 13px 14px; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+   .sim-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+   .sim-actions .button { width: 100%; min-height: 50px; }
+ }
+ @media (max-width: 380px) {
+   .shell { width: calc(100% - 28px); }
+   nav a { padding: 0 4px; font-size: 9px; }
+   .game-card { padding: 22px 18px; }
+   .sim-inner { padding: 16px 12px max(16px, env(safe-area-inset-bottom)); }
+ }
+
+</style>
 </head>
 <body>
  <div class="shell">
@@ -209,7 +263,7 @@
  </div>
  </section>
 
- <section class="games" id="games"><div class="intro-row"><div><div class="eyebrow">Обирай свій напрям</div><h2 class="section-title">Дві гри. <em>Реальні навички.</em></h2></div><p class="section-note">Приймай рішення, дивись на наслідки й навчайся знімати усвідомлено.</p></div><div class="game-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+ <section class="games" id="games"><div class="intro-row"><div><div class="eyebrow">Обирай свій напрям</div><h2 class="section-title">Дві гри. <em>Реальні навички.</em></h2></div><p class="section-note">Приймай рішення, дивись на наслідки й навчайся знімати усвідомлено.</p></div><div class="game-grid game-grid-two">
 <article class="game-card"><div class="game-index">ГРА 01 · 7 РІВНІВ</div><div class="game-mark">◉</div><h3>Зйомка</h3><p>Світло, звук, плани, ракурси, фон, перебивки й робота з людьми — у практичних місіях.</p><p style="letter-spacing:5px;color:var(--lilac);font-size:12px">01 02 03 04 05 06 07</p><button class="play" data-game="street">Почати рівень 1 ↗</button></article>
 <article class="game-card"><div class="game-index">ГРА 02 · У РОЗРОБЦІ</div><div class="game-mark">▤</div><h3>Монтаж</h3><p>Ритм, склейки, звук, озвучення, музика, колір і збирання готового ролика.</p><p style="font-size:11px;color:var(--muted)">Спочатку створюємо гру про зйомку</p><button class="play" disabled>Скоро</button></article></div></section>
 
@@ -222,7 +276,7 @@
  <div class="about-mark" aria-label="Фраза бренду">Your eye.<br>Your story.</div>
  </section>
  </main>
- <footer><span>© ASYBAE GAMES · 2026</span><span>Грайся з кадром. Знімай по-своєму.</span></footer>
+ <footer><span>© 2026 ASYBAE. Усі права захищені.</span><span>Грайся з кадром. Знімай по-своєму.</span></footer>
  </div>
 
  <dialog id="gameDialog" class="sim-dialog" aria-labelledby="gameTitle">
