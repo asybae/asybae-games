@@ -56,6 +56,20 @@
  .game-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
  .game-card{position:relative;min-height:260px;border:1px solid var(--line);border-radius:20px;padding:25px;background:rgba(255,253,249,.48);display:flex;flex-direction:column;align-items:flex-start;transition:transform .22s,border-color .22s,background .22s}
  .game-card:hover{transform:translateY(-4px);border-color:#b9a8c9;background:var(--white)}
+ .game-card { min-height: 0; padding: 22px; border-radius: 22px; gap: 0; }
+ .game-card-top { display:flex; width:100%; align-items:center; justify-content:space-between; gap:10px; }
+ .game-card .game-index { font-size:10px; line-height:1.5; letter-spacing:1.7px; }
+ .game-card .game-index span { color:var(--muted); letter-spacing:1px; }
+ .game-card .game-mark { flex:none; width:48px; height:48px; margin:0; }
+ .game-card h3 { font-size:clamp(24px,3vw,32px); line-height:1.05; letter-spacing:-1.1px; margin:24px 0 12px; }
+ .game-card p { font-size:14px; line-height:1.65; margin:0; }
+ .game-card-bottom { margin-top:24px; width:100%; }
+ .game-card .level-preview { display:flex; flex-wrap:nowrap; gap:5px; margin:0 0 18px; }
+ .game-card .level-preview span { display:grid; place-items:center; width:27px; height:27px; flex:none; border:1px solid var(--line); border-radius:50%; color:var(--lilac); font-size:9px; letter-spacing:0; }
+ .game-card .play { width:100%; min-height:52px; justify-content:center; padding:13px 14px; font-size:14px; font-weight:600; }
+ .game-card .card-footnote { margin-bottom:18px; font-size:12px; color:var(--muted); }
+ .game-card-locked .game-mark { opacity:.65; }
+ 
  .game-index{font-size:10px;letter-spacing:2px;color:var(--lilac)}
  .game-mark{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;margin:23px 0 18px;background:var(--lilac-pale);color:#655271}.game-mark svg{display:block;flex:none}.arrow-icon{display:inline-block;vertical-align:middle;flex:none}
  .game-card h3{font-size:23px;letter-spacing:-.7px;font-weight:500;margin:0 0 10px}
@@ -269,7 +283,17 @@
    .game-grid, .game-grid-two.game-carousel { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 12px) / 2); grid-template-columns: none !important; gap: 12px; margin-top: 22px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: 1px; padding: 2px 1px 14px; scrollbar-width: thin; scrollbar-color: var(--lilac) transparent; -webkit-overflow-scrolling: touch; }
    .game-grid.game-carousel::-webkit-scrollbar { height: 3px; }
    .game-grid.game-carousel::-webkit-scrollbar-thumb { background: var(--lilac); border-radius: 99px; }
-   .game-card { width: 100%; min-width: 0; min-height: 0; padding: 20px 16px; border-radius: 22px; scroll-snap-align: start; }
+   .game-card { width:100%; min-width:0; min-height:0; padding:18px 15px; border-radius:20px; scroll-snap-align:start; }
+   .game-card-top { align-items:flex-start; gap:7px; }
+   .game-card .game-index { font-size:8px; letter-spacing:1.1px; }
+   .game-card .game-index span { display:block; }
+   .game-card .game-mark { width:38px; height:38px; font-size:14px; }
+   .game-card h3 { font-size:24px; margin:20px 0 10px; }
+   .game-card p { font-size:13px; line-height:1.6; }
+   .game-card-bottom { margin-top:20px; }
+   .game-card .level-preview { gap:4px; margin-bottom:14px; }
+   .game-card .level-preview span { width:23px; height:23px; font-size:8px; }
+   .game-card .play { min-height:48px; padding:11px 8px; font-size:12px; }
    .game-card .play { max-width: 100%; white-space: normal; text-align: center; }
    .game-index { font-size: 9px; letter-spacing: 2px; line-height: 1.7; }
    .game-mark { width: 48px; height: 48px; margin: 18px 0 16px; }
@@ -351,8 +375,8 @@
  </section>
 
  <section class="games" id="games"><div class="intro-row"><div><div class="eyebrow">Обирай свій напрям</div><h2 class="section-title">Дві гри. <em>Реальні навички.</em></h2></div><p class="section-note">Приймай рішення, дивись на наслідки й навчайся знімати усвідомлено.</p></div><div class="game-grid game-grid-two game-carousel" aria-label="Список ігор">
-<article class="game-card"><div class="game-index">ГРА 01 · 7 РІВНІВ</div><div class="game-mark">◉</div><h3>Зйомка</h3><p>Світло, звук, плани, ракурси, фон, перебивки й робота з людьми — у практичних місіях.</p><p style="letter-spacing:5px;color:var(--lilac);font-size:12px">01 02 03 04 05 06 07</p><button class="play" data-game="street">Почати рівень 1 ↗</button></article>
-<article class="game-card"><div class="game-index">ГРА 02 · У РОЗРОБЦІ</div><div class="game-mark">▤</div><h3>Монтаж</h3><p>Ритм, склейки, звук, озвучення, музика, колір і збирання готового ролика.</p><p style="font-size:11px;color:var(--muted)">Спочатку створюємо гру про зйомку</p><button class="play" disabled>Скоро</button></article></div></section>
+<article class="game-card"><div class="game-card-top"><div class="game-index">ГРА 01 <span>· 7 РІВНІВ</span></div><div class="game-mark">◉</div></div><h3>Зйомка</h3><p>Світло, звук, композиція й робота з людьми. Вирішуй, як зняти сцену в реальних умовах.</p><div class="game-card-bottom"><div class="level-preview" aria-label="Сім рівнів"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span></div><button class="play" data-game="street">Почати рівень <span aria-hidden="true">↗</span></button></div></article>
+<article class="game-card game-card-locked"><div class="game-card-top"><div class="game-index">ГРА 02 <span>· У РОЗРОБЦІ</span></div><div class="game-mark">▤</div></div><h3>Монтаж</h3><p>Ритм, склейки, звук і музика. Збери з окремих кадрів ролик, який хочеться додивитися.</p><div class="game-card-bottom"><div class="card-footnote">Наступна гра</div><button class="play" disabled>Скоро</button></div></article></div></section>
 
  <section class="about" id="about">
  <div>
