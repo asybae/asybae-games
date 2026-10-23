@@ -190,28 +190,9 @@
  </div>
  </section>
 
- <section class="games" id="games">
- <div class="intro-row">
-  <div><div class="eyebrow">Обирай свій напрям</div><h2 class="section-title">Дві гри. <em>Реальні навички.</em></h2></div>
-  <p class="section-note">Не вгадуй відповіді. Приймай рішення, дивись на наслідки й вчися знімати усвідомлено.</p>
- </div>
- <div class="game-grid game-grid-two">
-  <article class="game-card">
-   <div class="game-index">ГРА 01 · 7 РІВНІВ У ПЛАНІ</div>
-   <div class="game-mark" aria-hidden="true"><svg viewBox="0 0 48 48" width="34" height="34"><rect x="5" y="9" width="38" height="30" rx="4" fill="#fffdf9" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="24" r="8" fill="#d9cfe4" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="24" r="3" fill="#9381ae"/><path d="M10 14h5M33 34h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-   <h3>Съёмка</h3><p>От первого разговорного видео до сложных клиентских съёмок. Свет, звук, планы, ракурсы, фон, перебивки и работа с людьми.</p>
-   <div class="level-preview"><span class="level-dot active">01</span><span class="level-dot">02</span><span class="level-dot">03</span><span class="level-dot">04</span><span class="level-dot">05</span><span class="level-dot">06</span><span class="level-dot boss">07</span></div>
-   <button class="play" data-game="shooting">Начать уровень 1 <svg class="arrow-icon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M6 14 14 6M6.5 6H14v7.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-  </article>
-  <article class="game-card">
-   <div class="game-index">ГРА 02 · РОЗРОБЛЯЄТЬСЯ</div>
-   <div class="game-mark" aria-hidden="true"><svg viewBox="0 0 48 48" width="34" height="34"><rect x="8" y="6" width="32" height="36" rx="4" fill="#fffdf9" stroke="currentColor" stroke-width="1.5"/><path d="M15 16h18M15 23h18M15 30h10" stroke="#9381ae" stroke-width="2" stroke-linecap="round"/><path d="m28 33 3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-   <h3>Монтаж</h3><p>Ритм, склейки, работа со звуком, озвучка и музыка, цвет, последовательность кадров и готовый ролик.</p>
-   <div class="coming-soon">Сначала создаём и проверяем игру про съёмку</div>
-   <button class="play" disabled aria-disabled="true">Скоро</button>
-  </article>
- </div>
- </section>
+ <section class="games" id="games"><div class="intro-row"><div><div class="eyebrow">Обирай свій напрям</div><h2 class="section-title">Дві гри. <em>Реальні навички.</em></h2></div><p class="section-note">Принимай решения, смотри на последствия и учись снимать осознанно.</p></div><div class="game-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+<article class="game-card"><div class="game-index">ГРА 01 · 7 УРОВНЕЙ</div><div class="game-mark">◉</div><h3>Съёмка</h3><p>Свет, звук, планы, ракурсы, фон, перебивки и работа с людьми — на практических миссиях.</p><p style="letter-spacing:5px;color:var(--lilac);font-size:12px">01 02 03 04 05 06 07</p><button class="play" data-game="street">Начать уровень 1 ↗</button></article>
+<article class="game-card"><div class="game-index">ГРА 02 · В РАЗРАБОТКЕ</div><div class="game-mark">▤</div><h3>Монтаж</h3><p>Ритм, склейки, звук, озвучка, музыка, цвет и сборка готового ролика.</p><p style="font-size:11px;color:var(--muted)">Сначала создаём игру про съёмку</p><button class="play" disabled>Скоро</button></article></div></section>
 
  <section class="about" id="about">
  <div>
@@ -250,83 +231,16 @@
  </dialog>
 </body>
 </html <script>
- const tasks = [
-  {key:"location",kicker:"ШАГ 01 · ЛОКАЦИЯ",title:"Где лучше снимать?",hint:"Красивый фон не всегда означает хорошую локацию. Учитывай шум и то, что происходит позади героя.",options:[
-   {label:"У самой дороги: динамичный городской фон",tag:"Больше движения",classes:["location-road"],feedback:"Это может сработать, если нужен живой городской вайб и микрофон справится с шумом. Но для спокойного экспертного видео машины будут конкурировать с речью. Если остаёшься здесь, сначала проверь звук.",score:3},
-   {label:"В стороне от дороги, где фон спокойнее",tag:"Меньше шума",classes:["location-quiet"],feedback:"Хорошая отправная точка для разговорного видео: меньше дорожного шума и отвлекающего движения. Всё равно проверь фон и звук — тихое место не гарантирует идеальную запись.",score:5},
-   {label:"На открытом солнце ради яркой картинки",tag:"Сложный свет",classes:["location-road"],feedback:"Солнечная локация может дать выразительный образ, но жёсткий свет способен создать резкие тени и пересветы. Это осознанный вариант, если ты контролируешь свет и проверяешь лицо на экране.",score:3},
-   {label:"Выбрать красивый фон, даже если рядом шумно",tag:"Приоритет фона",classes:["location-road"],feedback:"Визуально место может подойти, но не забывай о главной задаче: зритель должен понимать речь. Можно оставить эту локацию, если удастся отдалиться от шума или использовать подходящий микрофон.",score:3}
-  ]},
-  {key:"frame",kicker:"ШАГ 02 · КОМПОЗИЦИЯ",title:"Что сделать с фоном?",hint:"За героем мусорная урна и прохожий. Не обязательно менять локацию: сначала попробуй решить задачу кадрированием и позицией.",options:[
-   {label:"Сместиться на шаг и убрать отвлекающие объекты за пределы кадра",tag:"Изменить точку",classes:["frame-clean","frame-left"],feedback:"Часто это самый быстрый способ. Небольшое смещение камеры может убрать урну и прохожего, сохранив естественный фон. Проверь, не появились ли за головой другие линии или яркие пятна.",score:5},
-   {label:"Оставить героя по центру, включить сетку и проверить края кадра",tag:"Проверить кадр",classes:["frame-grid"],feedback:"Центральная композиция вполне может работать. Сетка помогает проверить баланс, но сама по себе не убирает мусор и прохожих. Посмотри на весь кадр, особенно за головой и у краёв.",score:4},
-   {label:"Попросить героя встать ближе к камере, чтобы фон стал менее заметным",tag:"Изменить дистанцию",classes:["frame-right"],feedback:"Это может сделать фон менее заметным, но изменит крупность и перспективу. Не подходи настолько близко, чтобы лицо искажалось, а кадр стал тесным. Проверь, что осталось в фоне.",score:4},
-   {label:"Не менять ничего: зритель будет смотреть только на лицо",tag:"Оставить как есть",classes:[],feedback:"Иногда живой фон уместен, но зритель не перестаёт замечать яркие объекты и движение. Сделай тестовый кадр и оцени, что первым притягивает взгляд.",score:2}
-  ]},
-  {key:"light",kicker:"ШАГ 03 · СВЕТ",title:"Как поставить человека относительно солнца?",hint:"Смотри не только на яркость сцены, но и на тени на лице и детали в светлых участках.",options:[
-   {label:"Найти открытую тень и повернуть лицо к мягкому отражённому свету",tag:"Мягкий свет",classes:["light-soft"],feedback:"Для спокойного разговорного видео это часто надёжный выбор: тени становятся мягче, а лицо легче экспонировать. Проверь, чтобы фон не оказался намного ярче героя.",score:5},
-   {label:"Оставить человека под прямым солнцем и поднять экспозицию",tag:"Жёсткий свет",classes:["light-harsh"],feedback:"Жёсткий солнечный свет может выглядеть намеренно и энергично, но повышение экспозиции не уберёт тени и может выбить детали кожи. Проверь лицо и светлые участки; при необходимости измени позицию.",score:3},
-   {label:"Поставить человека спиной к солнцу ради контрового света",tag:"Контровой свет",classes:["light-backlit"],feedback:"Контровой свет красиво отделяет героя от фона, но телефон может сделать лицо слишком тёмным. Этот вариант работает, если отдельно контролировать экспозицию лица или добавить отражённый свет.",score:3},
-   {label:"Повернуть человека так, чтобы свет падал сбоку",tag:"Боковой свет",classes:["light-soft"],feedback:"Боковой свет добавляет объём и может выглядеть выразительно. Следи за контрастом: если одна сторона лица слишком тёмная, попробуй повернуть героя ближе к свету или использовать отражатель.",score:4}
-  ]},
-  {key:"sound",kicker:"ШАГ 04 · ЗВУК",title:"Как записать разборчивую речь?",hint:"Машины и ветер могут испортить даже красивый кадр. Лучшее решение зависит от доступного оборудования.",options:[
-   {label:"Сделать тест и прослушать его в наушниках; приблизить микрофон ко рту",tag:"Проверить звук",classes:["sound-quiet"],feedback:"Отличная привычка. Короткий тест выявит ветер, трение одежды и фоновый шум до полной записи. Если есть петличка, закрепи её так, чтобы одежда не задевала капсюль.",score:5},
-   {label:"Записать на встроенный микрофон с расстояния нескольких метров",tag:"Без оборудования",classes:["sound-traffic"],feedback:"Можно обойтись встроенным микрофоном, если подойти ближе и найти тихое место. С нескольких метров голос обычно теряется на фоне улицы. Сделай тест и сравни уровни речи и шума.",score:2},
-   {label:"Оставить дорожный шум — он создаёт атмосферу",tag:"Атмосфера",classes:["sound-traffic"],feedback:"Фоновый звук иногда нужен для атмосферы, но речь должна оставаться понятной. Это может сработать при контролируемом уровне шума и подходящем микрофоне. Обязательно проверь запись.",score:3},
-   {label:"Надеть петличку и сразу записывать без проверки",tag:"Петличка",classes:["sound-quiet"],feedback:"Петличка помогает приблизить микрофон к голосу, но не гарантирует чистый звук: возможны ветер, трение ткани и плохое подключение. Запиши короткий тест и прослушай его.",score:4}
-  ]},
-  {key:"settings",kicker:"ШАГ 05 · НАСТРОЙКИ И ПРОВЕРКА",title:"Что проверить перед записью?",hint:"Сначала задай параметры под задачу, затем проверь фокус, экспозицию, ориентацию и тестовый фрагмент.",options:[
-   {label:"Вертикальный кадр, подходящее качество и fps, фокус на лице, тест 5–10 секунд",tag:"Полная проверка",classes:["frame-grid"],feedback:"Это надёжный чек-лист. Выбирай частоту кадров под задачу и свет, не используй цифровой зум без необходимости, проверь фокус и посмотри тестовый фрагмент со звуком перед основной записью.",score:5},
-   {label:"Включить максимальное разрешение и начать без теста",tag:"Сначала качество",classes:[],feedback:"Высокое разрешение не исправит промах фокуса, плохой звук или неверную экспозицию. Настройки должны соответствовать задаче и возможностям устройства. Короткий тест часто экономит всю съёмку.",score:2},
-   {label:"Зафиксировать фокус на фоне, чтобы камера не меняла резкость",tag:"Фокус на фоне",classes:["frame-grid"],feedback:"Фокус на фоне уместен, если фон — главный объект, но в разговорном видео зритель следит за человеком. Проверь, что лицо остаётся резким и автофокус не переключается на прохожих.",score:2},
-   {label:"Проверить кадр и фокус, но не прослушивать звук",tag:"Проверка изображения",classes:["frame-grid"],feedback:"Изображение может быть идеальным, а речь — непригодной для публикации. Проверка должна включать и картинку, и звук. Прослушай короткий тест, особенно на улице.",score:3}
-  ]}
- ];
- const dialog=document.getElementById("gameDialog");
- const titleEl=document.getElementById("gameTitle"),introEl=document.getElementById("gameIntro"),missionEl=document.getElementById("gameMission"),questionEl=document.getElementById("question"),hintEl=document.getElementById("taskHint"),kickerEl=document.getElementById("taskKicker"),choicesEl=document.getElementById("choices"),feedbackEl=document.getElementById("feedback"),stepLabel=document.getElementById("stepLabel"),xpLabel=document.getElementById("xpLabel"),bar=document.getElementById("progressBar"),nextBtn=document.getElementById("nextBtn"),scene=document.getElementById("simScene"),sceneLabel=document.getElementById("sceneLabel"),sceneStatus=document.getElementById("sceneStatus");
- let stepIndex=0,earned=0,answered=false,selectedScore=0;
- function resetScene(){scene.className="sim-scene";sceneLabel.textContent="ПРЕДВАРИТЕЛЬНЫЙ КАДР";sceneStatus.textContent="КАМЕРА ГОТОВА";}
- function renderStep(){
-  const t=tasks[stepIndex];answered=false;selectedScore=0;
-  missionEl.textContent="ИГРА 01 · РІВЕНЬ 1";
-  kickerEl.textContent=t.kicker;questionEl.textContent=t.title;hintEl.textContent=t.hint;
-  choicesEl.replaceChildren();feedbackEl.textContent="";nextBtn.disabled=true;
-  nextBtn.textContent=stepIndex===tasks.length-1?"Завершить уровень":"Следующий шаг";
-  t.options.forEach((opt,i)=>{const b=document.createElement("button");b.className="choice";b.type="button";b.innerHTML="<strong>"+opt.label+"</strong><br><span>"+opt.tag+"</span>";b.addEventListener("click",()=>choose(i,b));choicesEl.appendChild(b)});
-  stepLabel.textContent="ШАГ "+(stepIndex+1)+" ИЗ "+tasks.length;xpLabel.textContent=earned+" / 25 XP";bar.style.width=(stepIndex/tasks.length*100)+"%";
-  sceneStatus.textContent=["ЛОКАЦИЯ НЕ ВЫБРАНА","КАДР НЕ СОБРАН","СВЕТ НЕ ПРОВЕРЕН","ЗВУК НЕ ПРОВЕРЕН","ТЕСТ НЕ ЗАПИСАН"][stepIndex];
- }
- function choose(index,button){
-  if(answered)return;answered=true;
-  const t=tasks[stepIndex],opt=t.options[index];selectedScore=opt.score;earned+=opt.score;
-  scene.className="sim-scene";
-  opt.classes.forEach(c=>scene.classList.add(c));
-  if(opt.classes.includes("frame-clean"))sceneLabel.textContent="ФОН ОЧИЩЕН КАДРИРОВАНИЕМ";
-  else if(opt.classes.includes("frame-grid"))sceneLabel.textContent="СЕТКА КАДРА ВКЛЮЧЕНА";
-  else if(opt.classes.includes("light-soft"))sceneLabel.textContent="МЯГЧЕЕ ОСВЕЩЕНИЕ";
-  else if(opt.classes.includes("light-harsh"))sceneLabel.textContent="ЖЁСТКИЙ СВЕТ";
-  else if(opt.classes.includes("light-backlit"))sceneLabel.textContent="КОНТРОВОЙ СВЕТ";
-  else if(opt.classes.includes("location-quiet")||opt.classes.includes("sound-quiet"))sceneLabel.textContent="МЕНЬШЕ ОТВЛЕКАЮЩЕГО ШУМА";
-  else sceneLabel.textContent="ТВОЁ РЕШЕНИЕ";
-  sceneStatus.textContent=opt.tag.toUpperCase();
-  [...choicesEl.children].forEach((b,i)=>{b.disabled=true;if(i===index)b.setAttribute("aria-pressed","true")});
-  feedbackEl.innerHTML="<strong>"+opt.tag+".</strong> "+opt.feedback;
-  xpLabel.textContent=earned+" / 25 XP";nextBtn.disabled=false;
- }
- function startGame(){stepIndex=0;earned=0;resetScene();renderStep();if(!dialog.open)dialog.showModal()}
- document.querySelectorAll('[data-game="shooting"]').forEach(b=>b.addEventListener("click",startGame));
- document.getElementById("closeDialog").addEventListener("click",()=>dialog.close());
- document.getElementById("restartBtn").addEventListener("click",()=>startGame());
- nextBtn.addEventListener("click",()=>{
-  if(stepIndex<tasks.length-1){stepIndex++;renderStep();return}
-  questionEl.textContent="Уровень пройден. Теперь ты проверяешь съёмку до того, как клиент уйдёт.";
-  hintEl.textContent="Это прототип первой миссии. В полной версии к решениям добавятся более точные интерактивные настройки и сравнение результата.";
-  kickerEl.textContent="УРОВЕНЬ ЗАВЕРШЁН";choicesEl.replaceChildren();
-  feedbackEl.textContent="Твой результат: "+earned+" из 25 XP. Баллы показывают, насколько выбранные решения подходят этому брифу, а не то, что остальные варианты всегда неправильны.";
-  stepLabel.textContent="МИССИЯ ЗАВЕРШЕНА";bar.style.width="100%";nextBtn.textContent="Готово";nextBtn.disabled=false;
-  nextBtn.onclick=()=>dialog.close();
- });
- dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
- dialog.addEventListener("close",()=>{nextBtn.onclick=null});
- </script></body>
+const missions={street:{title:"Разговорное видео на улице",intro:"Клиенту нужен вертикальный ролик. Подготовь кадр, свет и звук до начала записи.",steps:[
+{q:"Где лучше снимать?",opts:["У дороги: динамичный фон, но шумно","В стороне от дороги, где фон спокойнее","На открытом солнце ради яркой картинки","В красивом месте, даже если рядом шумно"],correct:1,why:"Для спокойного разговорного видео тихое место — хорошая отправная точка. Но дорога может сработать, если нужна городская атмосфера и ты можешь контролировать звук. Оцени и фон, и звук."},
+{q:"За героем урна и прохожий. Что попробуешь первым?",opts:["Сместиться на шаг и убрать отвлекающие объекты из кадра","Включить сетку и проверить весь кадр","Подойти ближе, чтобы фон стал менее заметным","Ничего не менять: зритель смотрит только на лицо"],correct:0,why:"Небольшое смещение часто убирает урну или прохожего без смены локации. Сетка помогает проверить баланс, а более крупный план тоже может работать, если не искажает лицо и не делает кадр тесным."},
+{q:"Солнце создаёт резкие тени на лице. Как поступить?",opts:["Найти открытую тень и проверить лицо","Оставить прямое солнце и поднять экспозицию до максимума","Поставить человека спиной к солнцу и не проверять экран","Повернуть человека так, чтобы свет падал сбоку"],correct:0,why:"Открытая тень часто даёт мягкий свет. Боковой и контровой свет тоже могут работать, но нужно контролировать контраст и экспозицию лица. Не допускай пересвета кожи."},
+{q:"Как записать разборчивую речь на улице?",opts:["Записать встроенным микрофоном с нескольких метров","Сделать тест, прослушать его и приблизить микрофон к голосу","Оставить дорожный шум, он добавит атмосферы","Надеть петличку и сразу начать без проверки"],correct:1,why:"Тест выявляет ветер, шум и трение одежды до полной записи. Петличка помогает, но не гарантирует чистый звук. Встроенный микрофон тоже может подойти, если подойти ближе и найти тихое место."},
+{q:"Что проверить перед записью?",opts:["Только максимальное разрешение","Фокус на фоне, чтобы камера не переключалась","Вертикальный кадр, подходящие качество и fps, фокус на лице, экспозицию и тест со звуком","Только композицию, звук можно проверить позже"],correct:2,why:"Настройки выбирают под задачу и свет. Проверь фокус на лице, экспозицию, ориентацию, свободную память и короткий тест со звуком. Высокое разрешение не исправит плохой фокус или звук."}]}}; 
+const dialog=document.getElementById("gameDialog"),titleEl=document.getElementById("gameTitle"),introEl=document.getElementById("gameIntro"),missionEl=document.getElementById("gameMission"),questionEl=document.getElementById("question"),choicesEl=document.getElementById("choices"),feedbackEl=document.getElementById("feedback"),stepLabel=document.getElementById("stepLabel"),xpLabel=document.getElementById("xpLabel"),bar=document.getElementById("progressBar"),nextBtn=document.getElementById("nextBtn");let activeKey="street",stepIndex=0,earned=0,answered=false;
+function renderStep(){const m=missions[activeKey],s=m.steps[stepIndex];titleEl.textContent=m.title;introEl.textContent=m.intro;missionEl.textContent="УРОВЕНЬ 1 · +5 XP ЗА ШАГ";questionEl.textContent=s.q;choicesEl.replaceChildren();feedbackEl.textContent="";answered=false;nextBtn.disabled=true;nextBtn.textContent=stepIndex===m.steps.length-1?"Завершить уровень":"Следующий шаг";s.opts.forEach((opt,i)=>{const b=document.createElement("button");b.className="choice";b.type="button";b.textContent=opt;b.onclick=()=>choose(i,b);choicesEl.appendChild(b)});stepLabel.textContent="ШАГ "+(stepIndex+1)+" ИЗ "+m.steps.length;xpLabel.textContent=earned+" XP";bar.style.width=(stepIndex/m.steps.length*100)+"%"}
+function choose(index){if(answered)return;answered=true;const m=missions[activeKey],s=m.steps[stepIndex];const points=index===s.correct?5:2;earned+=points;[...choicesEl.children].forEach((b,i)=>{b.disabled=true;if(i===index)b.style.borderColor="#9381ae"});feedbackEl.textContent=(index===s.correct?"Хорошее решение. +5 XP. ":"В этом брифе есть более надёжный вариант. +2 XP. ")+s.why;xpLabel.textContent=earned+" XP";nextBtn.disabled=false}
+document.querySelectorAll('[data-game="street"]').forEach(b=>b.addEventListener("click",()=>{activeKey="street";stepIndex=0;earned=0;renderStep();dialog.showModal()}));document.getElementById("closeDialog").onclick=()=>dialog.close();document.getElementById("restartBtn").onclick=()=>{stepIndex=0;earned=0;renderStep()};nextBtn.onclick=()=>{const m=missions[activeKey];if(stepIndex<m.steps.length-1){stepIndex++;renderStep()}else{questionEl.textContent="Уровень пройден";choicesEl.replaceChildren();feedbackEl.textContent="Результат: "+earned+" XP. Решения оцениваются с учётом конкретной задачи. Другой вариант тоже может сработать в иных условиях.";stepLabel.textContent="МИССИЯ ЗАВЕРШЕНА";bar.style.width="100%";nextBtn.textContent="Готово";nextBtn.onclick=()=>dialog.close()}};
+dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
+</script></body>
 </html>
