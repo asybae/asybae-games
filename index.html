@@ -103,6 +103,25 @@
  .scene-trees{position:absolute;left:0;right:0;bottom:31%;height:35%;background:radial-gradient(ellipse at 15% 65%,#718b70 0 15%,transparent 16%),radial-gradient(ellipse at 28% 42%,#82967b 0 20%,transparent 21%),radial-gradient(ellipse at 76% 47%,#81927a 0 19%,transparent 20%),radial-gradient(ellipse at 88% 68%,#71886d 0 16%,transparent 17%)}
  .scene-ground{position:absolute;inset:58% 0 0;background:linear-gradient(#c7b9a5,#9f9a8b)}
  .scene-road{position:absolute;left:0;right:0;bottom:0;height:28%;background:#777b7b;opacity:.86}
+ .scene-cafe{position:absolute;inset:9% 0 24%;opacity:0;transition:opacity .25s;z-index:1}
+ .scene-cafe:before{content:"";position:absolute;left:9%;top:0;width:83%;height:72%;background:linear-gradient(90deg,#d9c4ad 0 8%,#f0e3d1 8% 92%,#c7b19b 92%);border:3px solid #b9a58e}
+ .cafe-awning{position:absolute;left:8%;top:21%;width:85%;height:13%;background:repeating-linear-gradient(90deg,#f4e6d4 0 17px,#b17e74 17px 34px);border-bottom:3px solid #9e766c}
+ .cafe-windows{position:absolute;left:15%;top:37%;width:70%;height:31%;background:repeating-linear-gradient(90deg,#7b9a9b 0 29%,#e5d7c4 29% 33%,#789092 33% 62%,#e5d7c4 62% 66%,#829d9e 66%);border:4px solid #6d7771}
+ .cafe-terrace{position:absolute;left:5%;right:3%;bottom:0;height:28%;background:#b8a28a;border-top:3px solid #8f7a65}
+ .cafe-table{position:absolute;bottom:5%;width:20%;height:7%;background:#594d43;border-radius:50%;box-shadow:0 15px 0 -5px #51473e}
+ .cafe-table-one{left:20%}.cafe-table-two{right:18%}
+ .scene-pedestrian{position:absolute;bottom:24%;width:16px;height:58px;background:#78636b;z-index:4;border-radius:8px 8px 3px 3px}
+ .scene-pedestrian:before{content:"";position:absolute;top:-12px;left:3px;width:12px;height:12px;background:#b98263;border-radius:50%}
+ .pedestrian-one{left:18%}.pedestrian-two{left:29%;height:49px;background:#5b7470}
+ .sim-scene.location-cafe .scene-cafe{opacity:1}
+ .sim-scene.location-cafe .scene-buildings{opacity:.18}
+ .sim-scene.location-cafe .scene-trees{opacity:.38}
+ .sim-scene.location-cafe .scene-car{opacity:.5}
+ .sim-scene.location-cafe .scene-pedestrian{opacity:.55}
+ .sim-scene.location-road .scene-cafe{opacity:0}
+ .sim-scene.location-road .scene-car{opacity:1}
+ .sim-scene.location-road .scene-pedestrian{opacity:1}
+
  .scene-road:after{content:"";position:absolute;left:0;right:0;top:48%;border-top:2px dashed #e7dfce}
  .scene-car{position:absolute;right:-5%;bottom:17%;width:27%;height:13%;background:#a9b8bc;border-radius:35% 45% 12% 12%;border-bottom:5px solid #626c70;transition:opacity .2s}
  .scene-car:before,.scene-car:after{content:"";position:absolute;bottom:-7px;width:18px;height:18px;border-radius:50%;background:#3d4244;border:3px solid #d2d2c9}
@@ -213,7 +232,7 @@
    <p id="gameIntro">Клієнту потрібне вертикальне відео з розбірливою мовою та спокійним фоном. До запису знайди рішення для реальних умов.</p>
    <div class="sim-stage">
     <div class="sim-scene" id="simScene" aria-label="Ілюстрація вуличної знімальної сцени">
-     <div class="scene-sky"></div><div class="scene-buildings"></div><div class="scene-trees"></div><div class="scene-ground"></div>
+     <div class="scene-sky"></div><div class="scene-buildings"></div><div class="scene-trees"></div><div class="scene-ground"></div><div class="scene-cafe" id="sceneCafe"><div class="cafe-awning"></div><div class="cafe-windows"></div><div class="cafe-terrace"></div><div class="cafe-table cafe-table-one"></div><div class="cafe-table cafe-table-two"></div></div><div class="scene-pedestrian pedestrian-one"></div><div class="scene-pedestrian pedestrian-two"></div>
      <div class="scene-road"></div><div class="scene-car"></div><div class="scene-bin" id="sceneBin"><span></span></div>
      <div class="scene-walker" id="sceneWalker"><i></i><b></b></div>
      <div class="scene-subject" id="sceneSubject"><i></i><b></b><span></span></div>
@@ -231,7 +250,7 @@
  </dialog>
 <script>
 const missions={street:{title:"Розмовне відео на вулиці",intro:"Клієнту потрібен вертикальний ролик. Підготуй кадр, світло й звук до початку запису.",steps:[
-{q:"Де краще знімати?",opts:["Біля дороги: динамічний фон, але шумно","Подалі від дороги, де спокійніший фон","Під прямим сонцем заради яскравої картинки","У красивому місці, навіть якщо поруч шумно"],correct:1,why:"Для спокійного розмовного відео тиха локація — хороший початок. Але дорога теж може підійти, якщо потрібна міська атмосфера й ти можеш контролювати звук. Оціни і фон, і звук."},
+{q:"Куди повернеш камеру?",opts:["Залишитися обличчям до дороги","Повернутися до фасаду кафе й тераси"],correct:1,why:"Фасад кафе дає виразніший, естетичніший фон, а шум машин усе ще є, хоча відчувається слабше. Це компроміс: далі потрібно прибрати смітник із композиції та перевірити голос на петличку. Дорога теж може бути доречною, якщо потрібен саме активний міський настрій."},
 {q:"Позаду героя урна й перехожий. Що спробуєш насамперед?",opts:["Зміститися на крок і прибрати зайві об’єкти з кадру","Увімкнути сітку й перевірити весь кадр","Підійти ближче, щоб фон був менш помітним","Нічого не змінювати: глядач дивиться лише на обличчя"],correct:0,why:"Невелике зміщення часто допомагає прибрати урну або перехожого без зміни локації. Сітка допомагає перевірити баланс, а крупніший план теж може спрацювати, якщо не спотворює обличчя й не робить кадр затісним."},
 {q:"Сонце створює різкі тіні на обличчі. Що робити?",opts:["Знайти відкриту тінь і перевірити обличчя","Залишити пряме сонце й підняти експозицію до максимуму","Поставити людину спиною до сонця й не перевіряти екран","Повернути людину так, щоб світло падало збоку"],correct:0,why:"Відкрита тінь часто дає м’яке світло. Бокове й контрове світло теж можуть спрацювати, але потрібно контролювати контраст та експозицію обличчя. Не допускай пересвічення шкіри."},
 {q:"Як записати розбірливу мову на вулиці?",opts:["Записати на вбудований мікрофон із кількох метрів","Зробити тест, прослухати його й наблизити мікрофон до голосу","Залишити шум дороги, він додасть атмосфери","Одягнути петличку й одразу почати без перевірки"],correct:1,why:"Тест допомагає виявити вітер, шум і тертя одягу до повного запису. Петличка допомагає, але не гарантує чистого звуку. Вбудований мікрофон теж може підійти, якщо підійти ближче й знайти тихе місце."},
@@ -242,13 +261,29 @@ function renderStep(){
  titleEl.textContent=m.title;introEl.textContent=m.intro;
  missionEl.textContent="РІВЕНЬ 1 · +5 XP ЗА КРОК";
  document.getElementById("taskKicker").textContent="КРОК "+String(stepIndex+1).padStart(2,"0")+" · "+["ЛОКАЦІЯ","КОМПОЗИЦІЯ","СВІТЛО","ЗВУК","НАЛАШТУВАННЯ"][stepIndex];
- document.getElementById("taskHint").textContent=["Оціни не лише красу місця, а й умови для запису.","Перевір, що потрапляє в кадр і що відволікає від героя.","Зверни увагу на тіні та експозицію обличчя.","Чистий звук починається з правильного розташування мікрофона й тесту.","Перед записом перевір кадр, фокус, експозицію та звук."][stepIndex];
+ document.getElementById("taskHint").textContent=["Подивись на обидва напрямки: обери не найтихіше місце, а найкращий компроміс для кадру й звуку.","Перевір, що потрапляє в кадр і що відволікає від героя.","Зверни увагу на тіні та експозицію обличчя.","Чистий звук починається з правильного розташування мікрофона й тесту.","Перед записом перевір кадр, фокус, експозицію та звук."][stepIndex];
  questionEl.textContent=s.q;choicesEl.replaceChildren();feedbackEl.textContent="";
  answered=false;nextBtn.disabled=true;nextBtn.textContent=stepIndex===m.steps.length-1?"Завершити рівень":"Наступний крок";
+ if(stepIndex===0)document.getElementById("simScene").classList.add("location-road"); 
  s.opts.forEach((opt,i)=>{const b=document.createElement("button");b.className="choice";b.type="button";b.textContent=opt;b.addEventListener("click",()=>choose(i,b));choicesEl.appendChild(b)});
  stepLabel.textContent="КРОК "+(stepIndex+1)+" ІЗ "+m.steps.length;xpLabel.textContent=earned+" XP";bar.style.width=(stepIndex/m.steps.length*100)+"%";
 }
-function choose(index){if(answered)return;answered=true;const m=missions[activeKey],s=m.steps[stepIndex];const points=index===s.correct?5:2;earned+=points;[...choicesEl.children].forEach((b,i)=>{b.disabled=true;if(i===index)b.style.borderColor="#9381ae"});feedbackEl.textContent=(index===s.correct?"Вдале рішення. +5 XP. ":"Для цього завдання є надійніший варіант. +2 XP. ")+s.why;xpLabel.textContent=earned+" XP";nextBtn.disabled=false}
+function choose(index){
+ if(answered)return;answered=true;
+ const m=missions[activeKey],s=m.steps[stepIndex],scene=document.getElementById("simScene");
+ const points=index===s.correct?5:2;earned+=points;
+ [...choicesEl.children].forEach((b,i)=>{b.disabled=true;if(i===index){b.style.borderColor="#9381ae";b.setAttribute("aria-pressed","true")}});
+ if(stepIndex===0){
+  scene.classList.remove("location-road","location-cafe");
+  scene.classList.add(index===0?"location-road":"location-cafe");
+  document.getElementById("sceneLabel").textContent=index===0?"НАПРЯМОК: ДОРОГА":"НАПРЯМОК: КАФЕ";
+  document.getElementById("sceneStatus").textContent=index===0?"МАШИНИ Й ЛЮДИ ПОЗАДУ":"ФАСАД · ТЕРАСА · ШУМ МАШИН";
+  feedbackEl.textContent=(index===1?"Вдалий вибір для естетичного фону. +5 XP. ":"Це теж може спрацювати, якщо потрібен активний міський фон. +2 XP. ")+s.why;
+ }else{
+  feedbackEl.textContent=(index===s.correct?"Вдале рішення. +5 XP. ":"Для цього завдання є надійніший варіант. +2 XP. ")+s.why;
+ }
+ xpLabel.textContent=earned+" XP";nextBtn.disabled=false;
+}
 document.querySelectorAll('[data-game="street"]').forEach(b=>b.addEventListener("click",()=>{activeKey="street";stepIndex=0;earned=0;renderStep();dialog.showModal()}));document.getElementById("closeDialog").onclick=()=>dialog.close();document.getElementById("restartBtn").onclick=()=>{stepIndex=0;earned=0;renderStep()};nextBtn.onclick=()=>{const m=missions[activeKey];if(stepIndex<m.steps.length-1){stepIndex++;renderStep()}else{questionEl.textContent="Рівень пройдено";choicesEl.replaceChildren();feedbackEl.textContent="Результат: "+earned+" XP. Рішення оцінюються з урахуванням конкретного завдання. Інший варіант теж може спрацювати за інших умов.";stepLabel.textContent="МІСІЮ ЗАВЕРШЕНО";bar.style.width="100%";nextBtn.textContent="Готово";nextBtn.onclick=()=>dialog.close()}};
 dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
 </script>
