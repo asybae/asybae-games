@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e9">
+  <meta name="description" content="ASYBAE.GAMES — інтерактивні ігри, що вчать бачити кадр і знімати усвідомлено.">
+  <title>ASYBAE.GAMES — грайся з кадром</title>
+  <style>
+    :root{--paper:#f4f0e9;--ink:#201e1d;--muted:#716a63;--lilac:#9381ae;--lilac-pale:#e8e0ed;--line:rgba(32,30,29,.16);--white:#fffdf9}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .shell{width:min(1160px,100% - 48px);margin-inline:auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:25px 0;border-bottom:1px solid var(--line)}
+    .wordmark{font-size:13px;letter-spacing:2.5px;font-weight:700;text-decoration:none;white-space:nowrap}
+    .wordmark span{color:var(--lilac)}
+    nav{display:flex;gap:26px;font-size:12px;letter-spacing:.8px}
+    nav a{text-decoration:none;color:var(--muted)}
+    nav a:hover{color:var(--ink)}
+    .hero{min-height:610px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:68px 0 76px}
+    .eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+    h1{font-size:clamp(58px,8vw,105px);line-height:.91;letter-spacing:-6px;font-weight:500;margin:26px 0}
+    h1 em,.section-title em{font-family:Georgia,serif;font-weight:400;color:var(--lilac)}
+    .hero-copy{max-width:490px;color:#514c47;font-size:16px;line-height:1.8}
+    .actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:28px}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:49px;padding:14px 21px;border:1px solid var(--ink);border-radius:999px;background:var(--ink);color:white;font-size:12px;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s}
+    .button:hover{transform:translateY(-2px);background:#38323f}
+    .button.secondary{background:transparent;color:var(--ink);border-color:var(--lilac)}
+    .button.secondary:hover{background:var(--lilac-pale)}
+    .visual{min-height:390px;position:relative;display:grid;place-items:center}
+    .frame-back{position:absolute;width:min(78%,350px);aspect-ratio:4/5;border:1px solid #b4a5c3;border-radius:190px 190px 24px 24px;transform:rotate(8deg);background:#e8e0ed}
+    .frame-front{position:relative;width:min(76%,330px);aspect-ratio:4/5;border-radius:190px 190px 24px 24px;border:1px solid rgba(32,30,29,.14);background:linear-gradient(145deg,#e8e0d5 0%,#d9cfe4 55%,#f7f2ea 100%);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;box-shadow:0 24px 60px #59456d14}
+    .target{width:138px;height:138px;border:1px solid rgba(32,30,29,.45);border-radius:50%;position:relative;margin-bottom:22px}
+    .target:before,.target:after{content:"";position:absolute;background:rgba(32,30,29,.35)}
+    .target:before{width:1px;height:100%;left:50%;top:0}.target:after{height:1px;width:100%;top:50%;left:0}
+    .target i{position:absolute;inset:28px;border:1px solid var(--lilac);border-radius:50%}
+    .frame-caption{font:italic 24px/1.1 Georgia,serif}
+    .frame-num{font-size:9px;letter-spacing:2px;margin-top:12px;color:#554d5e}
+    .sticker{position:absolute;right:4%;bottom:12%;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:14px 17px;font-size:10px;letter-spacing:1.5px;box-shadow:0 12px 35px #201e1d0e;transform:rotate(-6deg)}
+    .sticker strong{color:var(--lilac)}
+    .intro-row{display:flex;align-items:end;justify-content:space-between;gap:30px;border-top:1px solid var(--line);padding-top:32px}
+    .section-title{font-size:clamp(38px,5.5vw,66px);line-height:1;letter-spacing:-3px;font-weight:500;margin:13px 0 0}
+    .section-note{max-width:300px;color:var(--muted);font-size:13px;line-height:1.7;margin:0}
+    .games{padding:24px 0 90px}
+    .game-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
+    .game-card{position:relative;min-height:260px;border:1px solid var(--line);border-radius:20px;padding:25px;background:rgba(255,253,249,.48);display:flex;flex-direction:column;align-items:flex-start;transition:transform .22s,border-color .22s,background .22s}
+    .game-card:hover{transform:translateY(-4px);border-color:#b9a8c9;background:var(--white)}
+    .game-index{font-size:10px;letter-spacing:2px;color:var(--lilac)}
+    .game-mark{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;margin:23px 0 18px;background:var(--lilac-pale);color:#655271;font-size:23px}
+    .game-card h3{font-size:23px;letter-spacing:-.7px;font-weight:500;margin:0 0 10px}
+    .game-card p{font-size:13px;line-height:1.65;color:var(--muted);margin:0 0 24px}
+    .game-card .play{margin-top:auto;border:0;background:none;padding:0;color:var(--ink);font-size:12px;cursor:pointer;border-bottom:1px solid var(--lilac);padding-bottom:5px}
+    .about{margin:0 0 84px;padding:clamp(28px,5vw,52px);border-radius:24px;background:linear-gradient(120deg,#e8e0ed,#f8f4ed 80%);display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+    .about h2{font-size:clamp(32px,4.2vw,49px);letter-spacing:-2px;line-height:1.04;font-weight:500;margin:14px 0}
+    .about p{font-size:14px;line-height:1.8;color:#514c47;margin:0}
+    .about-mark{font:italic clamp(40px,7vw,78px)/.95 Georgia,serif;color:#9381ae;text-align:center;letter-spacing:-3px}
+    footer{border-top:1px solid var(--line);padding:22px 0 32px;display:flex;justify-content:space-between;gap:15px;color:var(--muted);font-size:10px;letter-spacing:1px}
+    .notice{margin-top:22px;font-size:11px;color:var(--muted)}
+    dialog{width:min(620px,calc(100% - 28px));padding:0;border:1px solid var(--line);border-radius:22px;background:var(--paper);color:var(--ink);box-shadow:0 30px 100px #201e1d33}
+    dialog::backdrop{background:#201e1d66;backdrop-filter:blur(4px)}
+    .modal-inner{padding:clamp(22px,5vw,38px)}
+    .modal-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .modal-top .eyebrow{font-size:9px}
+    .close{border:1px solid var(--line);background:transparent;border-radius:50%;width:38px;height:38px;font-size:21px;cursor:pointer;color:var(--ink)}
+    .modal-inner h2{font-size:clamp(30px,5vw,48px);letter-spacing:-2px;font-weight:500;margin:24px 0 10px}
+    .modal-inner p{color:var(--muted);font-size:14px;line-height:1.7}
+    .mission{background:#fffdf9;border:1px solid var(--line);border-radius:16px;padding:20px;margin:22px 0}
+    .mission strong{font-size:13px;line-height:1.5}
+    .choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+    .choice{border:1px solid var(--line);border-radius:12px;background:transparent;padding:13px;text-align:left;font:inherit;font-size:12px;line-height:1.5;cursor:pointer}
+    .choice:hover{border-color:var(--lilac);background:#e8e0ed80}
+    .choice:focus-visible,.button:focus-visible,.play:focus-visible{outline:2px solid var(--lilac);outline-offset:3px}
+    .feedback{min-height:25px;margin-top:13px;font-size:12px;color:#655271;line-height:1.6}
+    .progress{height:3px;background:#ded6e7;border-radius:99px;overflow:hidden;margin-top:20px}
+    .progress span{display:block;width:0;height:100%;background:var(--lilac);transition:width .2s}
+    @media(max-width:800px){.hero{min-height:auto;grid-template-columns:1fr;gap:0;padding:62px 0}.hero-copy{font-size:15px}.visual{min-height:350px;margin-top:8px}.game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.intro-row{align-items:flex-start;flex-direction:column}.section-note{max-width:500px}.about{grid-template-columns:1fr}.about-mark{text-align:left}}
+    @media(max-width:520px){.shell{width:calc(100% - 32px)}header{padding:20px 0}.wordmark{font-size:11px;letter-spacing:1.8px}nav{gap:14px;font-size:10px}nav a:last-child{display:none}h1{font-size:clamp(54px,16vw,82px);letter-spacing:-4px;margin:22px 0}.hero{padding:49px 0 54px}.visual{min-height:320px}.frame-front{width:72%;}.frame-back{width:75%}.sticker{right:0;bottom:9%;font-size:9px}.game-grid{grid-template-columns:1fr;gap:12px}.game-card{min-height:220px}.game-mark{margin:15px 0}.about{margin-bottom:56px;padding:25px}.choices{grid-template-columns:1fr}footer{flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <a class="wordmark" href="#" aria-label="ASYBAE.GAMES — головна">ASYBAE<span>.</span>GAMES</a>
+      <nav aria-label="Основна навігація">
+        <a href="#games">ІГРИ</a>
+        <a href="#about">ПРО ПРОЄКТ</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Грайся з кадром · Навчайся бачити</div>
+          <h1>Знімай не<br>навмання.<br><em>Зі змістом.</em></h1>
+          <p class="hero-copy">ASYBAE.GAMES — інтерактивні ігри, які допомагають розвивати візуальне мислення, розуміти композицію та знімати цікавіше навіть на телефон.</p>
+          <div class="actions">
+            <a class="button" href="#games">Обрати гру <span aria-hidden="true">↗</span></a>
+            <a class="button secondary" href="#about">Як це працює</a>
+          </div>
+          <p class="notice">Короткі місії · Практика замість нудної теорії</p>
+        </div>
+        <div class="visual" aria-label="Ілюстрація композиції кадру">
+          <div class="frame-back"></div>
+          <div class="frame-front">
+            <div class="target"><i></i></div>
+            <div class="frame-caption">Find your<br>own angle.</div>
+            <div class="frame-num">MISSION 001 · VISUAL THINKING</div>
+          </div>
+          <div class="sticker"><strong>01 / 05</strong> &nbsp; ТВОЯ ПЕРША МІСІЯ</div>
+        </div>
+      </section>
+
+      <section class="games" id="games">
+        <div class="intro-row">
+          <div>
+            <div class="eyebrow">Обирай і пробуй</div>
+            <h2 class="section-title">Менше теорії.<br><em>Більше практики.</em></h2>
+          </div>
+          <p class="section-note">Кожна гра — це невелике завдання, яке тренує конкретну навичку зйомки. Починай з будь-якої.</p>
+        </div>
+        <div class="game-grid">
+          <article class="game-card">
+            <div class="game-index">МІСІЯ 01</div><div class="game-mark" aria-hidden="true">⊹</div>
+            <h3>Збери кадр</h3><p>Композиція, крупність і ракурс: навчися обирати, що має бути головним у кадрі.</p>
+            <button class="play" data-game="frame">Грати в місію <span aria-hidden="true">↗</span></button>
+          </article>
+          <article class="game-card">
+            <div class="game-index">МІСІЯ 02</div><div class="game-mark" aria-hidden="true">◒</div>
+            <h3>Полювання на світло</h3><p>Вчися помічати напрямок світла й обирати вигідніше освітлення для героя.</p>
+            <button class="play" data-game="light">Грати в місію <span aria-hidden="true">↗</span></button>
+          </article>
+          <article class="game-card">
+            <div class="game-index">МІСІЯ 03</div><div class="game-mark" aria-hidden="true">▤</div>
+            <h3>Плани мають значення</h3><p>Розберися, коли потрібен загальний, середній або крупний план, щоб історія читалася.</p>
+            <button class="play" data-game="shots">Грати в місію <span aria-hidden="true">↗</span></button>
+          </article>
+          <article class="game-card">
+            <div class="game-index">МІСІЯ 04</div><div class="game-mark" aria-hidden="true">↗</div>
+            <h3>Рух без хаосу</h3><p>Обирай рух камери, який підсилює дію, а не відволікає від неї.</p>
+            <button class="play" data-game="motion">Грати в місію <span aria-hidden="true">↗</span></button>
+          </article>
+          <article class="game-card">
+            <div class="game-index">МІСІЯ 05</div><div class="game-mark" aria-hidden="true">▧</div>
+            <h3>Історія з трьох кадрів</h3><p>Побудуй коротку послідовність, у якій кожен кадр веде глядача далі.</p>
+            <button class="play" data-game="story">Грати в місію <span aria-hidden="true">↗</span></button>
+          </article>
+          <article class="game-card" style="background:linear-gradient(145deg,#e8e0ed,#fffdf9);">
+            <div class="game-index">ТВОЯ ПРАКТИКА</div><div class="game-mark" aria-hidden="true">✳</div>
+            <h3>Пограйся з візуалом</h3><p>Обери місію, перевір свою інтуїцію й поступово почни бачити кадр по-новому.</p>
+            <a class="play" href="#games">Почати з будь-якої ↗</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div>
+          <div class="eyebrow">Не просто гра</div>
+          <h2>Тренуй око.<br><em>Знаходь історії.</em></h2>
+          <p>Професійний кадр починається не з дорогої камери, а з рішення: що показати, звідки знімати та як використати світло. ASYBAE.GAMES перетворює ці рішення на коротку практику, яку легко проходити у власному темпі.</p>
+        </div>
+        <div class="about-mark" aria-label="Фраза бренду">Your eye.<br>Your story.</div>
+      </section>
+    </main>
+    <footer><span>© ASYBAE.GAMES · 2026</span><span>Грайся з кадром. Думай як автор.</span></footer>
+  </div>
+
+  <dialog id="gameDialog" aria-labelledby="gameTitle">
+    <div class="modal-inner">
+      <div class="modal-top"><div class="eyebrow" id="gameMission">МІСІЯ 01 · 5 XP</div><button class="close" id="closeDialog" aria-label="Закрити">×</button></div>
+      <h2 id="gameTitle">Збери кадр</h2>
+      <p id="gameIntro">Прочитай ситуацію та обери найкраще рішення.</p>
+      <div class="mission"><strong id="question"></strong><div class="choices" id="choices"></div><div class="feedback" id="feedback" aria-live="polite"></div></div>
+      <div class="modal-top"><span class="eyebrow" id="stepLabel">КРОК 1 ІЗ 3</span><span class="eyebrow" id="xpLabel">0 XP</span></div>
+      <div class="progress"><span id="progressBar"></span></div>
+      <div class="actions"><button class="button" id="nextBtn" disabled>Наступний крок ↗</button><button class="button secondary" id="restartBtn">Почати спочатку</button></div>
+    </div>
+  </dialog>
+
+  <script>
+    const missions = {
+      frame:{title:"Збери кадр",intro:"Композиція — це не правило заради правила. Це спосіб підказати глядачу, куди дивитися.",steps:[
+        {q:"Ти знімаєш людину біля вікна. Як зробити кадр виразнішим?",opts:["Поставити людину точно в центр за будь-яких умов","Розмістити людину ближче до третини й залишити простір у напрямку погляду","Залишити якомога більше випадкових предметів навколо"],correct:1,why:"Так з’являється баланс і простір для погляду. Центр теж може працювати, але рішення має бути свідомим."},
+        {q:"Герой дивиться праворуч. Де логічно залишити більше простору?",opts:["Праворуч — у напрямку погляду","Ліворуч, за спиною героя","Простір не має значення"],correct:0,why:"Вільний простір перед поглядом допомагає кадру дихати й підтримує напрямок уваги."},
+        {q:"На фоні за головою героя стирчить яскравий предмет. Що зробиш?",opts:["Не звертатиму уваги — головне герой","Зміню кут або позицію, щоб прибрати відволікання","Додам ще предметів для балансу"],correct:1,why:"Чистий фон допомагає герою залишатися головним. Зроби маленький крок убік і перевір кадр."}]},
+      light:{title:"Полювання на світло",intro:"Світло формує об’єм, настрій і фактуру. Важливо не лише скільки його, а звідки воно падає.",steps:[
+        {q:"Обличчя здається пласким. Яке світло спробуєш спершу?",opts:["М’яке бокове світло від вікна","Поставлю людину спиною до темної стіни й зніму без змін","Зніматиму прямо під жорстким верхнім світлом"],correct:0,why:"Бокове м’яке світло створює ніжні тіні та додає обличчю об’єму."},
+        {q:"На обличчі жорсткі тіні від прямого сонця. Що зробити?",opts:["Попросити героя стати в розсіяне світло біля тіні","Підняти експозицію до повністю білої шкіри","Швидко рухати телефон під час зйомки"],correct:0,why:"Відкрита тінь або світло, розсіяне фіранкою, допоможуть отримати м’якше освітлення."},
+        {q:"Хочеш відділити темне волосся від темного фону. Що допоможе?",opts:["Зробити фон ще темнішим без змін","Трохи змінити позицію й додати світло ззаду або збоку","Застосувати максимальне цифрове збільшення"],correct:1,why:"Контрове чи бокове світло створює світлий контур і візуально відокремлює героя."}]},
+      shots:{title:"Плани мають значення",intro:"Крупність визначає, скільки інформації отримує глядач і на чому фокусується історія.",steps:[
+        {q:"Хочеш показати місце, атмосферу та героя в просторі. Який план обрати?",opts:["Дуже крупний — лише очі","Загальний — герой разом з оточенням","Деталь — лише пальці"],correct:1,why:"Загальний план знайомить з місцем і показує взаємозв’язок героя з оточенням."},
+        {q:"Герой наносить крем на руку. Що найкраще покаже дію?",opts:["Крупний або детальний план рук","Далекий загальний план з іншого кінця кімнати","Порожній кадр стіни"],correct:0,why:"Деталь допомагає побачити фактуру та дію й може стати виразним монтажним акцентом."},
+        {q:"Монтуєш коротке відео: місце, дія, емоція. Яка послідовність логічна?",opts:["Три однакові крупні плани","Загальний → середній → крупний","Крупний → той самий крупний → той самий крупний"],correct:1,why:"Послідовність від контексту до деталі дає глядачу зрозуміти місце, дію та емоцію."}]},
+      motion:{title:"Рух без хаосу",intro:"Рух камери має мотивувати увагу глядача. Спочатку визнач мету, а потім обери рух.",steps:[
+        {q:"Хочеш показати образ людини з голови до ніг без метушні. Що краще?",opts:["Повільно й стабільно провести телефоном згори донизу","Постійно смикати телефоном у різні боки","Безперервно крутити телефон навколо себе"],correct:0,why:"Повільний контрольований рух дає глядачу час роздивитися образ."},
+        {q:"Герой іде вперед, а ти хочеш зберегти відчуття руху. Як знімати?",opts:["Відступати плавно перед героєм, якщо це безпечно","Бігти спиною вперед, дивлячись лише в екран","Робити різкі зуми кожну секунду"],correct:0,why:"Плавний супровід підтримує напрямок і тримає героя в кадрі. Безпека важливіша за кадр."},
+        {q:"Коли статика краща за рух?",opts:["Ніколи — камера має рухатися завжди","Коли композиція вже сильна, а рух нічого не додає","Лише коли телефон розрядився"],correct:1,why:"Статичний кадр може бути дуже виразним. Рух — інструмент, а не обов’язкова прикраса."}]},
+      story:{title:"Історія з трьох кадрів",intro:"Навіть три короткі плани можуть скластися в історію, якщо кожен додає нову інформацію.",steps:[
+        {q:"Знімаєш приготування кави. З чого логічно почати?",opts:["Деталь пари на чашці без контексту й одразу кінець","Загальний план місця або героя біля кавомашини","Випадковий кадр підлоги"],correct:1,why:"Перший кадр знайомить глядача з місцем і ситуацією."},
+        {q:"Який кадр логічно додати після загального?",opts:["Середній план дії — герой готує каву","Повторити той самий кадр без змін","Зняти зовсім іншу кімнату"],correct:0,why:"Середній план показує дію й веде історію вперед."},
+        {q:"Чим можна завершити послідовність?",opts:["Деталлю кави, чашки або реакції героя","Ще одним випадковим загальним планом","Порожнім кадром без зв’язку з дією"],correct:0,why:"Фінальна деталь підсумовує дію та дає глядачу приємну точку завершення."}]}
+    };
+    const dialog=document.getElementById("gameDialog");
+    const titleEl=document.getElementById("gameTitle"),introEl=document.getElementById("gameIntro"),missionEl=document.getElementById("gameMission"),questionEl=document.getElementById("question"),choicesEl=document.getElementById("choices"),feedbackEl=document.getElementById("feedback"),stepLabel=document.getElementById("stepLabel"),xpLabel=document.getElementById("xpLabel"),bar=document.getElementById("progressBar"),nextBtn=document.getElementById("nextBtn");
+    let activeKey="frame",stepIndex=0,earned=0,answered=false;
+    function renderStep(){const m=missions[activeKey],s=m.steps[stepIndex];titleEl.textContent=m.title;introEl.textContent=m.intro;missionEl.textContent="МІСІЯ "+String(Object.keys(missions).indexOf(activeKey)+1).padStart(2,"0")+" · +5 XP ЗА КРОК";questionEl.textContent=s.q;choicesEl.replaceChildren();feedbackEl.textContent="";answered=false;nextBtn.disabled=true;nextBtn.textContent=stepIndex===m.steps.length-1?"Завершити місію ↗":"Наступний крок ↗";s.opts.forEach((opt,i)=>{const b=document.createElement("button");b.className="choice";b.type="button";b.textContent=opt;b.addEventListener("click",()=>choose(i,b));choicesEl.appendChild(b)});stepLabel.textContent="КРОК "+(stepIndex+1)+" ІЗ "+m.steps.length;xpLabel.textContent=earned+" XP";bar.style.width=(stepIndex/m.steps.length*100)+"%"}
+    function choose(index,button){if(answered)return;answered=true;const m=missions[activeKey],s=m.steps[stepIndex],correct=index===s.correct;if(correct)earned+=5;[...choicesEl.children].forEach((b,i)=>{b.disabled=true;if(i===s.correct)b.style.borderColor="#9381ae";if(i===index&&!correct)b.style.background="#f1e2dc"});feedbackEl.textContent=(correct?"Так, саме так! +5 XP. ":"Не зовсім. ") + s.why;xpLabel.textContent=earned+" XP";nextBtn.disabled=false}
+    document.querySelectorAll("[data-game]").forEach(b=>b.addEventListener("click",()=>{activeKey=b.dataset.game;stepIndex=0;renderStep();dialog.showModal()}));
+    document.getElementById("closeDialog").addEventListener("click",()=>dialog.close());
+    document.getElementById("restartBtn").addEventListener("click",()=>{stepIndex=0;renderStep()});
+    nextBtn.addEventListener("click",()=>{const m=missions[activeKey];if(stepIndex<m.steps.length-1){stepIndex++;renderStep()}else{questionEl.textContent="Місію пройдено! Зроблено "+m.steps.length+" кроки. Спробуй іншу гру або повтори цю, щоб закріпити навичку.";choicesEl.replaceChildren();feedbackEl.textContent="Твій результат: "+earned+" XP. Пам’ятай: сильний кадр починається з усвідомленого рішення.";stepLabel.textContent="МІСІЮ ЗАВЕРШЕНО";bar.style.width="100%";nextBtn.textContent="Готово";nextBtn.onclick=null;nextBtn.addEventListener("click",()=>dialog.close(),{once:true});nextBtn.disabled=false}});
+    dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
+    dialog.addEventListener("close",()=>{nextBtn.onclick=null;nextBtn.replaceWith(nextBtn.cloneNode(true));});
+  </script>
+</body>
+</html>
