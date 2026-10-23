@@ -58,6 +58,10 @@
  .game-card:hover{transform:translateY(-4px);border-color:#b9a8c9;background:var(--white)}
  .game-card { min-height: 0; padding: 22px; border-radius: 22px; gap: 0; }
  .game-card-top { display:flex; width:100%; align-items:center; justify-content:space-between; gap:10px; }
+ .game-card .game-mark { display:grid; place-items:center; background:#e9e1ee; border-radius:16px; }
+ .game-card .game-mark svg { display:block; width:80%; height:auto; overflow:visible; }
+ .game-mark-camera, .game-mark-edit { color:#29242d; }
+
  .game-card .game-index { font-size:10px; line-height:1.5; letter-spacing:1.7px; }
  .game-card .game-index span { color:var(--muted); letter-spacing:1px; }
  .game-card .game-mark { flex:none; width:48px; height:48px; margin:0; }
@@ -370,13 +374,13 @@
    <svg viewBox="0 0 100 70" width="100" height="70"><path d="M12 20h17l7-9h25l7 9h12a7 7 0 0 1 7 7v28a7 7 0 0 1-7 7H12a7 7 0 0 1-7-7V27a7 7 0 0 1 7-7Z" fill="#f8f4ed" stroke="#201e1d" stroke-width="2"/><circle cx="48" cy="41" r="17" fill="#d9cfe4" stroke="#201e1d" stroke-width="2"/><circle cx="48" cy="41" r="10" fill="#9381ae" stroke="#201e1d" stroke-width="1.5"/><circle cx="48" cy="41" r="4" fill="#f8f4ed"/><rect x="69" y="26" width="9" height="5" rx="2" fill="#9381ae"/></svg>
  </div>
  <div class="phone-float" aria-hidden="true"><div class="phone-speaker"></div><div class="phone-screen"><span class="phone-rec"></span><span class="phone-horizon"></span><span class="phone-person"></span><span class="phone-controls">●　◉　●</span></div></div>
- <div class="sticker"><strong>ГРА</strong> &nbsp; ВИБІР → РЕЗУЛЬТАТ</div>
+ <div class="sticker"><strong>ГРА</strong> &nbsp; ВИБІР • РЕЗУЛЬТАТ</div>
  </div>
  </section>
 
  <section class="games" id="games"><div class="intro-row"><div><div class="eyebrow">Обирай свій напрям</div><h2 class="section-title">Дві гри. <em>Реальні навички.</em></h2></div><p class="section-note">Приймай рішення, дивись на наслідки й навчайся знімати усвідомлено.</p></div><div class="game-grid game-grid-two game-carousel" aria-label="Список ігор">
-<article class="game-card"><div class="game-card-top"><div class="game-index">ГРА 01 <span>· 7 РІВНІВ</span></div><div class="game-mark">◉</div></div><h3>Зйомка</h3><p>Світло, звук, композиція й робота з людьми. Вирішуй, як зняти сцену в реальних умовах.</p><div class="game-card-bottom"><div class="level-preview" aria-label="Сім рівнів"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span></div><button class="play" data-game="street">Почати рівень <span aria-hidden="true">↗</span></button></div></article>
-<article class="game-card game-card-locked"><div class="game-card-top"><div class="game-index">ГРА 02 <span>· У РОЗРОБЦІ</span></div><div class="game-mark">▤</div></div><h3>Монтаж</h3><p>Ритм, склейки, звук і музика. Збери з окремих кадрів ролик, який хочеться додивитися.</p><div class="game-card-bottom"><div class="card-footnote">Наступна гра</div><button class="play" disabled>Скоро</button></div></article></div></section>
+<article class="game-card"><div class="game-card-top"><div class="game-index">ГРА 01 <span> / 7 РІВНІВ</span></div><div class="game-mark game-mark-camera" aria-hidden="true"><svg viewBox="0 0 64 48"><path d="M7 14h12l5-7h16l5 7h12a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4Z" fill="#f8f4ed" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="27" r="11" fill="#d9cfe4" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="27" r="5" fill="#9381ae"/><rect x="46" y="18" width="6" height="3" rx="1.5" fill="#9381ae"/></svg></div></div><h3>Зйомка</h3><p>Світло, звук, композиція й робота з людьми. Вирішуй, як зняти сцену в реальних умовах.</p><div class="game-card-bottom"><div class="level-preview" aria-label="Сім рівнів"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span></div><button class="play" data-game="street">Почати рівень <span aria-hidden="true">↗</span></button></div></article>
+<article class="game-card game-card-locked"><div class="game-card-top"><div class="game-index">ГРА 02 <span> / У РОЗРОБЦІ</span></div><div class="game-mark game-mark-edit" aria-hidden="true"><svg viewBox="0 0 64 48"><rect x="4" y="7" width="56" height="34" rx="5" fill="#f8f4ed" stroke="currentColor" stroke-width="2"/><path d="M10 16h12v7H10z" fill="#9381ae"/><path d="M25 16h17v7H25z" fill="#d9cfe4"/><path d="M45 16h9v7h-9z" fill="#b9a8c9"/><path d="M10 27h19v7H10z" fill="#d9cfe4"/><path d="M32 27h10v7H32z" fill="#9381ae"/><path d="M45 27h9v7h-9z" fill="#d9cfe4"/></svg></div></div><h3>Монтаж</h3><p>Ритм, склейки, звук і музика. Збери з окремих кадрів ролик, який хочеться додивитися.</p><div class="game-card-bottom"><div class="card-footnote">Наступна гра</div><button class="play" disabled>Скоро</button></div></article></div></section>
 
  <section class="about" id="about">
  <div>
