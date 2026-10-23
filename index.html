@@ -47,7 +47,7 @@
  .target i{position:absolute;inset:28px;border:1px solid var(--lilac);border-radius:50%}
  .frame-caption{font:italic 24px/1.1 Georgia,serif}
  .frame-num{font-size:9px;letter-spacing:2px;margin-top:12px;color:#554d5e}
- .sticker{position:absolute;right:4%;bottom:12%;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:14px 17px;font-size:10px;letter-spacing:1.5px;box-shadow:0 12px 35px #201e1d0e;transform:rotate(-6deg)}
+ .sticker{position:absolute;right:1%;bottom:2%;z-index:5;display:flex;align-items:center;justify-content:center;gap:7px;max-width:78%;white-space:nowrap;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:12px 16px;font-size:10px;letter-spacing:1px;line-height:1.2;box-shadow:0 12px 35px #201e1d0e;transform:rotate(-3deg)}
  .sticker strong{color:var(--lilac)}
  .intro-row{display:flex;align-items:end;justify-content:space-between;gap:30px;border-top:1px solid var(--line);padding-top:32px}
  .section-title{font-size:clamp(38px,5.5vw,66px);line-height:1;letter-spacing:-3px;font-weight:500;margin:13px 0 0}
@@ -164,7 +164,7 @@
  .sim-scene.sound-traffic .scene-car{opacity:1}.sim-scene.sound-quiet .scene-car{opacity:.15}
  @media(max-width:650px){.game-grid-two{grid-template-columns:1fr}.sim-stage{grid-template-columns:1fr}.sim-scene{min-height:220px}.sim-choices{grid-template-columns:1fr}.sim-dialog{max-height:calc(100dvh - 12px)}.sim-inner{padding:16px}.sim-actions{flex-direction:column}.sim-actions .button{width:100%}}
  @media(max-width:800px){.hero{min-height:auto;grid-template-columns:1fr;gap:0;padding:62px 0}.hero-copy{font-size:15px}.visual{min-height:370px;margin-top:8px}.game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.intro-row{align-items:flex-start;flex-direction:column}.section-note{max-width:500px}.about{grid-template-columns:1fr}.about-mark{text-align:left}}
- @media(max-width:520px){.shell{width:calc(100% - 32px)}header{padding:20px 0}.wordmark{font-size:11px;letter-spacing:1.8px}nav{gap:14px;font-size:10px}nav a:last-child{display:none}h1{font-size:clamp(34px,8.5vw,44px);line-height:.94;letter-spacing:-.8px;margin:22px 0}.hero{padding:49px 0 54px}.visual{min-height:340px}.camera-float{left:0;top:12%;transform:scale(.78) rotate(-8deg);transform-origin:left top}.phone-float{right:0;top:7%;transform:scale(.82) rotate(8deg);transform-origin:right top}.viewfinder{height:145px}.frame-front{width:72%;}.frame-back{width:75%}.sticker{right:0;bottom:9%;font-size:9px}.game-grid{grid-template-columns:1fr;gap:12px}.game-card{min-height:220px}.game-mark{margin:15px 0}.about{margin-bottom:56px;padding:25px}.choices{grid-template-columns:1fr}footer{flex-direction:column}}
+ @media(max-width:520px){.shell{width:calc(100% - 32px)}header{padding:20px 0}.wordmark{font-size:11px;letter-spacing:1.8px}nav{gap:14px;font-size:10px}nav a:last-child{display:none}h1{font-size:clamp(34px,8.5vw,44px);line-height:.94;letter-spacing:-.8px;margin:22px 0}.hero{padding:49px 0 54px}.visual{min-height:340px}.camera-float{left:0;top:12%;transform:scale(.78) rotate(-8deg);transform-origin:left top}.phone-float{right:0;top:7%;transform:scale(.82) rotate(8deg);transform-origin:right top}.viewfinder{height:145px}.frame-front{width:72%;}.frame-back{width:75%}.sticker{right:1%;bottom:1%;font-size:9px;max-width:76%;padding:12px 15px}.game-grid{grid-template-columns:1fr;gap:12px}.game-card{min-height:220px}.game-mark{margin:15px 0}.about{margin-bottom:56px;padding:25px}.choices{grid-template-columns:1fr}footer{flex-direction:column}}
  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
  
  /* Mobile layout — aligned with the ASYBAE portfolio system */
@@ -255,18 +255,13 @@
    /* Keep the hero illustration clean on narrow screens: no overlapping labels */
    .frame-caption { font-size: 16px; line-height: 1.08; }
    .frame-num { display: none; }
-   .sticker { display: none; }
-   .visual { overflow: visible; height: 225px; margin-bottom: 26px; }
+   .visual { overflow: visible; height: 250px; margin-bottom: 28px; }
    .frame-front { padding: 10px; }
    .viewfinder { height: 88px; flex-basis: 88px; margin-bottom: 8px; }
-   .camera-float { left: 2%; top: 17%; transform: rotate(-8deg) scale(.62); }
-   .phone-float { right: 3%; top: 5%; transform: rotate(8deg) scale(.66); }
-
-   .frame-num { font-size: 6px; letter-spacing: .45px; line-height: 1.4; margin-top: 7px; }
    .camera-float { left: 7%; top: 16%; transform: rotate(-8deg) scale(.72); transform-origin: top left; }
    .camera-float svg { width: 78px; height: 55px; }
    .phone-float { right: 8%; top: 7%; transform: rotate(8deg) scale(.78); transform-origin: top right; }
-   .sticker { right: 9%; bottom: 3%; padding: 9px 12px; font-size: 8px; letter-spacing: 1px; max-width: 138px; }
+   .sticker { display: flex; right: 3%; bottom: 0; max-width: 76%; padding: 9px 12px; gap: 6px; font-size: 7px; letter-spacing: .6px; transform: rotate(-3deg); }
    .intro-row { padding-top: 26px; gap: 14px; }
    .section-title { font-size: clamp(36px, 9vw, 48px); line-height: 1; letter-spacing: -1.8px; }
    .section-note { font-size: 13px; line-height: 1.65; }
