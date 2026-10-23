@@ -168,6 +168,21 @@
  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
  
  /* Mobile layout — aligned with the ASYBAE portfolio system */
+ 
+ /* Hero polish: compact headline, separate animated illustration on phones */
+ .visual .frame-front { animation: hero-frame-float 6s ease-in-out infinite; }
+ .camera-float { animation: hero-camera-float 5s ease-in-out infinite; }
+ .phone-float { animation: hero-phone-float 4.5s ease-in-out infinite; }
+ .scene-sun { animation: hero-sun-drift 7s ease-in-out infinite alternate; }
+ .scene-subject { animation: hero-subject-shift 5s ease-in-out infinite alternate; }
+ .rec-dot, .phone-rec { animation: hero-rec-blink 1.5s steps(2,end) infinite; }
+ @keyframes hero-frame-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+ @keyframes hero-camera-float { 0%,100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-8px) rotate(-5deg); } }
+ @keyframes hero-phone-float { 0%,100% { transform: translateY(0) rotate(8deg); } 50% { transform: translateY(7px) rotate(4deg); } }
+ @keyframes hero-sun-drift { from { transform: translateX(0); } to { transform: translateX(-12px); } }
+ @keyframes hero-subject-shift { from { left: 44%; } to { left: 49%; } }
+ @keyframes hero-rec-blink { 0%,45% { opacity: 1; } 46%,100% { opacity: .28; } }
+ @media (prefers-reduced-motion: reduce) { .visual *, .visual { animation: none !important; } }
  @media (max-width: 600px) {
    .shell { width: calc(100% - 32px); }
    header { gap: 8px; padding: 20px 14px; }
@@ -175,12 +190,28 @@
    nav { gap: 0; font-size: 10px; }
    nav a { padding: 0 6px; white-space: nowrap; letter-spacing: .4px; }
    nav a:last-child { display: none; }
-   .hero { display: flex; min-height: auto; padding: 54px 0 42px; gap: 0; }
-   .eyebrow { font-size: 9px; line-height: 1.7; letter-spacing: 2.2px; }
-   h1 { font-size: clamp(40px, 10.5vw, 54px); line-height: .94; letter-spacing: -2.4px; margin: 22px 0 28px; overflow-wrap: normal; }
+   .hero { display: flex; flex-direction: column; align-items: stretch; min-height: auto; padding: 38px 0 42px; gap: 0; }
+   .hero > div:first-child { display: contents; }
+   .hero .eyebrow { order: 1; font-size: 9px; line-height: 1.7; letter-spacing: 2.2px; }
+   .hero h1 { order: 2; max-width: 100%; font-size: clamp(35px, 8.6vw, 44px); line-height: .98; letter-spacing: -1.7px; margin: 18px 0 20px; overflow-wrap: normal; }
    .heading-second-line { white-space: normal; }
-   .hero-copy { font-size: 15px; line-height: 1.7; }
-   .visual { min-height: 300px; margin: 0 0 20px; }
+   .heading-second-line em { display: inline-block; white-space: nowrap; }
+   .hero-copy { order: 3; max-width: 100%; font-size: 14px; line-height: 1.65; margin: 0; }
+   .hero .actions { order: 4; display: flex; gap: 10px; margin-top: 20px; }
+   .hero .actions .button { min-height: 46px; padding: 12px 16px; font-size: 11px; }
+   .hero .notice { order: 5; font-size: 12px; line-height: 1.6; margin: 16px 0 0; }
+   .visual { order: 0; width: 100%; min-height: 0; height: 245px; margin: 0 0 20px; overflow: hidden; }
+   .frame-back { width: 43%; height: 90%; aspect-ratio: auto; border-radius: 130px 130px 18px 18px; }
+   .frame-front { width: 42%; height: 88%; aspect-ratio: auto; padding: 12px; border-radius: 130px 130px 18px 18px; }
+   .viewfinder { height: 94px; flex: 0 0 94px; margin-bottom: 10px; }
+   .scene-sun { width: 22px; height: 22px; top: 14px; right: 18px; }
+   .scene-subject { bottom: 13px; transform: scale(.78); transform-origin: bottom left; }
+   .frame-caption { font-size: 17px; }
+   .frame-num { font-size: 7px; letter-spacing: 1px; margin-top: 7px; }
+   .camera-float { left: 7%; top: 16%; transform: rotate(-8deg) scale(.72); transform-origin: top left; }
+   .camera-float svg { width: 78px; height: 55px; }
+   .phone-float { right: 8%; top: 7%; transform: rotate(8deg) scale(.78); transform-origin: top right; }
+   .sticker { right: 9%; bottom: 3%; padding: 9px 12px; font-size: 8px; letter-spacing: 1px; max-width: 138px; }
    .intro-row { padding-top: 26px; gap: 14px; }
    .section-title { font-size: clamp(36px, 9vw, 48px); line-height: 1; letter-spacing: -1.8px; }
    .section-note { font-size: 13px; line-height: 1.65; }
