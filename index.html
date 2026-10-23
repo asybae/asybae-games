@@ -170,18 +170,42 @@
  /* Mobile layout — aligned with the ASYBAE portfolio system */
  
  /* Hero polish: compact headline, separate animated illustration on phones */
+ /* Motion across the full illustration */
+ .visual .frame-back { animation: hero-back-sway 8s ease-in-out infinite; transform-origin: 50% 60%; }
  .visual .frame-front { animation: hero-frame-float 6s ease-in-out infinite; }
+ .viewfinder { animation: hero-viewfinder-glow 4s ease-in-out infinite; }
+ .scene-sun { animation: hero-sun-drift 7s ease-in-out infinite alternate; }
+ .scene-horizon { animation: hero-horizon-shift 9s ease-in-out infinite alternate; }
+ .scene-subject { animation: hero-subject-shift 5s ease-in-out infinite alternate; }
+ .scene-grid { animation: hero-grid-breathe 5s ease-in-out infinite; }
  .camera-float { animation: hero-camera-float 5s ease-in-out infinite; }
  .phone-float { animation: hero-phone-float 4.5s ease-in-out infinite; }
- .scene-sun { animation: hero-sun-drift 7s ease-in-out infinite alternate; }
- .scene-subject { animation: hero-subject-shift 5s ease-in-out infinite alternate; }
+ .phone-screen { animation: hero-phone-screen 6s ease-in-out infinite; }
+ .phone-person { animation: hero-phone-person 4.5s ease-in-out infinite alternate; }
+ .phone-horizon { animation: hero-phone-horizon 7s ease-in-out infinite alternate; }
+ .phone-controls { animation: hero-controls 3s ease-in-out infinite; }
+ .frame-caption { animation: hero-caption 6s ease-in-out infinite; }
+ .frame-num { animation: hero-num 2s ease-in-out infinite; }
  .rec-dot, .phone-rec { animation: hero-rec-blink 1.5s steps(2,end) infinite; }
+ .sticker { animation: hero-sticker-float 5.5s ease-in-out infinite; }
+ .vf-corner { animation: hero-corners 4s ease-in-out infinite alternate; }
+ @keyframes hero-back-sway { 0%,100% { transform: rotate(8deg) translateY(0); } 50% { transform: rotate(5deg) translateY(-5px); } }
  @keyframes hero-frame-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
  @keyframes hero-camera-float { 0%,100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-8px) rotate(-5deg); } }
  @keyframes hero-phone-float { 0%,100% { transform: translateY(0) rotate(8deg); } 50% { transform: translateY(7px) rotate(4deg); } }
  @keyframes hero-sun-drift { from { transform: translateX(0); } to { transform: translateX(-12px); } }
+ @keyframes hero-horizon-shift { from { transform: translateX(-3px); } to { transform: translateX(3px); } }
  @keyframes hero-subject-shift { from { left: 44%; } to { left: 49%; } }
- @keyframes hero-rec-blink { 0%,45% { opacity: 1; } 46%,100% { opacity: .28; } }
+ @keyframes hero-grid-breathe { 0%,100% { opacity: .7; } 50% { opacity: 1; } }
+ @keyframes hero-viewfinder-glow { 0%,100% { box-shadow: 0 0 0 #fff0; } 50% { box-shadow: inset 0 0 22px #fff6; } }
+ @keyframes hero-phone-screen { 0%,100% { filter: saturate(1); } 50% { filter: saturate(1.25); } }
+ @keyframes hero-phone-person { from { transform: translateX(-3px); } to { transform: translateX(3px); } }
+ @keyframes hero-phone-horizon { from { transform: translateY(0); } to { transform: translateY(-5px); } }
+ @keyframes hero-controls { 0%,100% { opacity: .75; } 50% { opacity: 1; } }
+ @keyframes hero-caption { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+ @keyframes hero-num { 0%,100% { opacity: .75; } 50% { opacity: 1; } }
+ @keyframes hero-sticker-float { 0%,100% { transform: rotate(-6deg) translateY(0); } 50% { transform: rotate(-3deg) translateY(-6px); } }
+ @keyframes hero-corners { from { opacity: .65; } to { opacity: 1; } }
  @media (prefers-reduced-motion: reduce) { .visual *, .visual { animation: none !important; } }
  @media (max-width: 600px) {
    .shell { width: calc(100% - 32px); }
