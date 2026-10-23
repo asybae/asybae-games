@@ -341,6 +341,13 @@
  }
 
 @media (max-width: 600px){.mobile-title-break{display:block}} @media (min-width: 601px){.mobile-title-break{display:none}}
+
+ .rules{margin:0 0 48px;padding:24px 28px;border-radius:20px;background:linear-gradient(120deg,#e8e0ed,#f8f4ed 80%)}
+ .rules h2{font-size:clamp(25px,3vw,34px);font-weight:500;letter-spacing:-1px;line-height:1.1;margin:0 0 16px}
+ .rules h2 em{font-family:Georgia,serif;font-weight:400;color:var(--lilac)}
+ .rules-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px}
+ .rules-list p{margin:0;padding:12px 14px;border:1px solid #d9cfe4;border-radius:12px;background:#ffffff75;color:#514c47;font-size:13px;line-height:1.55}
+ @media(max-width:600px){.rules{margin:0 0 30px;padding:20px 16px;border-radius:17px}.rules h2{font-size:27px;margin-bottom:12px}.rules-list{grid-template-columns:minmax(0,1fr);gap:8px}.rules-list p{font-size:12px;line-height:1.45;padding:10px 12px}}
 </style>
 </head>
 <body>
@@ -398,13 +405,14 @@
 <article class="game-card"><div class="game-card-top"><div class="game-index">ГРА 01 <span> / 7 РІВНІВ</span></div><div class="game-mark game-mark-camera" aria-hidden="true"><svg viewBox="0 0 64 48"><path d="M7 14h12l5-7h16l5 7h12a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4Z" fill="#f8f4ed" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="27" r="11" fill="#d9cfe4" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="27" r="5" fill="#9381ae"/><rect x="46" y="18" width="6" height="3" rx="1.5" fill="#9381ae"/></svg></div></div><h3>Зйомка</h3><p>Світло, звук, композиція й робота з людьми Вирішуй, як зняти сцену в реальних умовах</p><div class="game-card-bottom"><div class="level-preview" aria-label="Сім рівнів"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span></div><button class="play" data-game="street">Почати рівень <span aria-hidden="true">↗</span></button></div></article>
 <article class="game-card game-card-locked"><div class="game-card-top"><div class="game-index">ГРА 02 <span> / У РОЗРОБЦІ</span></div><div class="game-mark game-mark-edit" aria-hidden="true"><svg viewBox="0 0 64 48"><rect x="4" y="7" width="56" height="34" rx="5" fill="#f8f4ed" stroke="currentColor" stroke-width="2"/><path d="M10 16h12v7H10z" fill="#9381ae"/><path d="M25 16h17v7H25z" fill="#d9cfe4"/><path d="M45 16h9v7h-9z" fill="#b9a8c9"/><path d="M10 27h19v7H10z" fill="#d9cfe4"/><path d="M32 27h10v7H32z" fill="#9381ae"/><path d="M45 27h9v7h-9z" fill="#d9cfe4"/></svg></div></div><h3>Монтаж</h3><p>Ритм, склейки, звук і музика Збери з окремих кадрів ролик, який хочеться додивитися</p><div class="game-card-bottom"><div class="card-footnote">Наступна гра</div><button class="play" disabled>Скоро</button></div></article></div></section>
 
- <section class="about" id="about">
- <div>
- <div class="eyebrow">Не просто гра, після якої ти станеш кращою версією себе</div>
- <h2>Не просто гра, <em>після якої ти станеш кращою версією себе</em></h2>
- 
+ <section class="rules" id="rules">
+ <h2>Правила <em>прості</em></h2>
+ <div class="rules-list">
+  <p>Не обирай варіанти навмання, думай як справжній оператор</p>
+  <p>У кожного рішення є наслідки, тож обирай з розумом</p>
+  <p>Помилятися можна, але на помилках треба вчитися! Запам’ятовуй, чого не варто робити на зйомці та під час монтажу, щоб не повторювати цих помилок у реальній роботі</p>
+  <p>І головне, не просто проходь гру, прокачуй навички, які знадобляться за камерою і на монтажі в реальному житті</p>
  </div>
- <div class="about-mark" aria-label="Фраза бренду">Your eye<br>Your story</div>
  </section>
  </main>
  <footer><span>© 2026 ASYBAE Усі права захищені</span><span>Грайся з кадром Знімай по-своєму</span></footer>
