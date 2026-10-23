@@ -123,6 +123,11 @@
  .sim-inner h2{font-size:clamp(27px,4vw,42px);margin:17px 0 7px;letter-spacing:-1.5px}
  .sim-stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(200px,.85fr);gap:14px;margin:18px 0}
  .sim-scene{position:relative;min-height:275px;aspect-ratio:4/3;overflow:hidden;border-radius:15px;background:#d8e3e8;isolation:isolate;transition:filter .25s}
+ .photo-scene{background:#d8cfc4}
+ .scene-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+ .photo-scene .scene-grid-overlay{z-index:2}
+ .photo-scene .scene-label,.photo-scene .scene-status{z-index:3;background:#201e1db8;color:#fffdf9;padding:7px 9px;border-radius:6px;letter-spacing:1px}
+ .photo-scene .scene-status{left:auto;right:10px;bottom:10px}
  .scene-sky{position:absolute;inset:0 0 43%;background:linear-gradient(115deg,#d8e4e8,#f2d8b2 65%,#f7e9c9)}
  .scene-buildings{position:absolute;inset:15% 0 36%;background:linear-gradient(90deg,transparent 0 5%,#c7bdb4 5% 18%,transparent 18% 24%,#d7c7b5 24% 41%,transparent 41% 48%,#b9c5c4 48% 67%,transparent 67% 74%,#c7bdb4 74% 92%,transparent 92%);opacity:.85}
  .scene-buildings:after{content:"";position:absolute;inset:10% 0 0;background:repeating-linear-gradient(90deg,transparent 0 27px,#8e9893 28px 30px,transparent 31px 49px);opacity:.45}
@@ -444,11 +449,8 @@
    <h2 id="gameTitle">Розмовне відео на вулиці</h2>
    <p id="gameIntro">Клієнту потрібне вертикальне відео з розбірливою мовою та спокійним фоном. До запису знайди рішення для реальних умов.</p>
    <div class="sim-stage">
-    <div class="sim-scene" id="simScene" aria-label="Ілюстрація вуличної знімальної сцени">
-     <div class="scene-sky"></div><div class="scene-buildings"></div><div class="scene-trees"></div><div class="scene-ground"></div><div class="scene-cafe" id="sceneCafe"><div class="cafe-awning"></div><div class="cafe-windows"></div><div class="cafe-terrace"></div><div class="cafe-table cafe-table-one"></div><div class="cafe-table cafe-table-two"></div></div><div class="scene-pedestrian pedestrian-one"></div><div class="scene-pedestrian pedestrian-two"></div>
-     <div class="scene-road"></div><div class="scene-car"></div><div class="scene-bin" id="sceneBin"><span></span></div>
-     <div class="scene-walker" id="sceneWalker"><i></i><b></b></div>
-     <div class="scene-subject" id="sceneSubject"><i></i><b></b><span></span></div>
+    <div class="sim-scene photo-scene" id="simScene" aria-label="Фото знімального процесу на міській вулиці">
+     <img class="scene-photo" src="https://static.wixstatic.com/media/ea91f9_9d15e7106af34eedb6d7dad25a6d39b4~mv2.png/v1/fill/w_1000%2Ch_563%2Cal_c%2Cq_90%2Cusm_0.66_1.00_0.01/ea91f9_9d15e7106af34eedb6d7dad25a6d39b4~mv2.png" alt="Оператор тримає професійну камеру й знімає міську вулицю" />
      <div class="scene-grid-overlay" id="sceneGrid"></div>
      <div class="scene-label" id="sceneLabel">ПОПЕРЕДНІЙ КАДР</div>
      <div class="scene-status"><span class="scene-rec"></span><span id="sceneStatus">КАМЕРА ГОТОВА</span></div>
