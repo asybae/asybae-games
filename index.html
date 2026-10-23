@@ -372,6 +372,20 @@
 .world-controls button:active{background:#9481b7}
 .world-scene .scene-rec{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e98c7b;margin-right:5px}
 @media(max-width:520px){.world-tip{font-size:8px}.world-controls button{width:31px;height:30px}}
+
+/* Visual choice cards for the lawyer shoot mission */
+.visual-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.visual-choice{display:flex;flex-direction:column;gap:0;overflow:hidden;padding:0!important;text-align:left!important;border:1px solid var(--line)!important;border-radius:14px!important;background:#fffdf9!important;color:var(--ink)!important;min-width:0}
+.visual-choice img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#e7e0d7}
+.visual-choice .visual-choice-copy{padding:11px 12px;display:flex;flex-direction:column;gap:5px}
+.visual-choice strong{font-size:14px;line-height:1.3}
+.visual-choice small{font-size:12px;line-height:1.45;color:#77716c}
+.visual-choice[aria-pressed="true"]{border:2px solid #9883b8!important;box-shadow:0 0 0 2px #9883b826}
+.visual-choice:disabled{opacity:1;cursor:default}
+.visual-choice.is-good{border-color:#7d9a82!important}
+.visual-choice.is-bad{border-color:#c78275!important}
+.zoom-choice img{aspect-ratio:4/5;object-position:center 28%}
+@media(max-width:520px){.visual-choices{gap:8px}.visual-choice .visual-choice-copy{padding:9px}.visual-choice strong{font-size:12px}.visual-choice small{font-size:11px}}
 </style>
 </head>
 <body>
@@ -482,9 +496,9 @@
   </div>
  </dialog>
 <script>
-const missions={street:{title:"Розмовне відео на вулиці",intro:"Твоя задача: правильно зняти розмовний відеоролик.\nЩо ти будеш робити першим?",steps:[
-{q:"Куди повернеш камеру?",opts:["Залишитися обличчям до дороги","Повернутися до фасаду кафе й тераси"],correct:1,why:"Фасад кафе дає виразніший, естетичніший фон, а шум машин усе ще є, хоча відчувається слабше. Це компроміс: далі потрібно прибрати смітник із композиції та перевірити голос на петличку. Дорога теж може бути доречною, якщо потрібен саме активний міський настрій."},
-{q:"Позаду героя урна й перехожий. Що спробуєш насамперед?",opts:["Зміститися на крок і прибрати зайві об’єкти з кадру","Увімкнути сітку й перевірити весь кадр","Підійти ближче, щоб фон був менш помітним","Нічого не змінювати: глядач дивиться лише на обличчя"],correct:0,why:"Невелике зміщення часто допомагає прибрати урну або перехожого без зміни локації. Сітка допомагає перевірити баланс, а крупніший план теж може спрацювати, якщо не спотворює обличчя й не робить кадр затісним."},
+const missions={street:{title:"Розмовне відео на вулиці",intro:"Ти знімаєш розмовне відео для клієнтки — юристки з довгим чорним волоссям. Потрібні чітка картинка, чистий звук і красивий естетичний фон.",steps:[
+{q:"Спочатку обери фон для відео",visual:"background",opts:["Міська дорога","Естетична тераса кафе"],correct:1,why:""},
+{q:"Яку крупність плану обереш?",visual:"zoom",opts:["1× · широкий план","2× · збалансований план","3× · надто крупно"],correct:1,why:""},
 {q:"Сонце створює різкі тіні на обличчі. Що робити?",opts:["Знайти відкриту тінь і перевірити обличчя","Залишити пряме сонце й підняти експозицію до максимуму","Поставити людину спиною до сонця й не перевіряти екран","Повернути людину так, щоб світло падало збоку"],correct:0,why:"Відкрита тінь часто дає м’яке світло. Бокове й контрове світло теж можуть спрацювати, але потрібно контролювати контраст та експозицію обличчя. Не допускай пересвічення шкіри."},
 {q:"Як записати розбірливу мову на вулиці?",opts:["Записати на вбудований мікрофон із кількох метрів","Зробити тест, прослухати його й наблизити мікрофон до голосу","Залишити шум дороги, він додасть атмосфери","Одягнути петличку й одразу почати без перевірки"],correct:1,why:"Тест допомагає виявити вітер, шум і тертя одягу до повного запису. Петличка допомагає, але не гарантує чистого звуку. Вбудований мікрофон теж може підійти, якщо підійти ближче й знайти тихе місце."},
 {q:"Що перевірити перед записом?",opts:["Лише максимальну роздільну здатність","Фокус на фоні, щоб камера не перемикалася","Вертикальний кадр, відповідні якість і fps, фокус на обличчі, експозицію та тест зі звуком","Лише композицію, звук можна перевірити пізніше"],correct:2,why:"Налаштування обирають під завдання й освітлення. Перевір фокус на обличчі, експозицію, орієнтацію, вільну пам’ять і короткий тест зі звуком. Висока роздільна здатність не виправить поганий фокус чи звук."}]}}; 
@@ -498,7 +512,7 @@ function renderStep(){
  questionEl.textContent=s.q;choicesEl.replaceChildren();feedbackEl.textContent="";
  answered=false;nextBtn.disabled=true;nextBtn.textContent=stepIndex===m.steps.length-1?"Завершити рівень":"Наступний крок";
  if(stepIndex===0)document.getElementById("simScene").classList.add("location-road"); 
- s.opts.forEach((opt,i)=>{const b=document.createElement("button");b.className="choice";b.type="button";b.textContent=opt;b.addEventListener("click",()=>choose(i,b));choicesEl.appendChild(b)});
+ if(s.visual){choicesEl.classList.add("visual-choices");s.opts.forEach((opt,i)=>{const b=document.createElement("button");b.className="choice visual-choice"+(s.visual==="zoom"?" zoom-choice":"");b.type="button";const img=document.createElement("img");img.alt="";img.src=s.visual==="background"?(i===0?"https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=700&q=85":"https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=700&q=85"):(i===0?"https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=85":i===1?"https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=85&crop=faces":"https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=85&crop=faces");const copy=document.createElement("span");copy.className="visual-choice-copy";const strong=document.createElement("strong");strong.textContent=opt;const small=document.createElement("small");small.textContent=s.visual==="background"?(i===0?"Машини, перехожі й дорожній шум у фоні":"Затишна тераса в стилі лофт, але збоку видно смітник"):(i===0?"У кадрі забагато фону — смітник залишається видимим":"");if(s.visual==="zoom")small.textContent=i===0?"Видно багато фону й смітник":i===1?"Обличчя та плечі в кадрі, фон чистий":"Обличчя займає майже весь кадр";copy.append(strong,small);b.append(img,copy);b.addEventListener("click",()=>choose(i,b));choicesEl.appendChild(b)});}else{choicesEl.classList.remove("visual-choices");s.opts.forEach((opt,i)=>{const b=document.createElement("button");b.className="choice";b.type="button";b.textContent=opt;b.addEventListener("click",()=>choose(i,b));choicesEl.appendChild(b)});}
  stepLabel.textContent="КРОК "+(stepIndex+1)+" ІЗ "+m.steps.length;xpLabel.textContent=earned+" XP";bar.style.width=(stepIndex/m.steps.length*100)+"%";
 }
 function choose(index){
@@ -507,11 +521,13 @@ function choose(index){
  const points=index===s.correct?5:2;earned+=points;
  [...choicesEl.children].forEach((b,i)=>{b.disabled=true;if(i===index){b.style.borderColor="#9381ae";b.setAttribute("aria-pressed","true")}});
  if(stepIndex===0){
-  scene.classList.remove("location-road","location-cafe");
-  scene.classList.add(index===0?"location-road":"location-cafe");
-  document.getElementById("sceneLabel").textContent=index===0?"НАПРЯМОК: ДОРОГА":"НАПРЯМОК: КАФЕ";
-  document.getElementById("sceneStatus").textContent=index===0?"МАШИНИ Й ЛЮДИ ПОЗАДУ":"ФАСАД · ТЕРАСА · ШУМ МАШИН";
-  feedbackEl.textContent=(index===1?"Вдалий вибір для естетичного фону. +5 XP. ":"Це теж може спрацювати, якщо потрібен активний міський фон. +2 XP. ")+s.why;
+  document.getElementById("sceneLabel").textContent=index===0?"ФОН: МІСЬКА ДОРОГА":"ФОН: ТЕРАСА КАФЕ";
+  document.getElementById("sceneStatus").textContent=index===0?"МАШИНИ · ПЕРЕХОЖІ · ШУМ":"ЕСТЕТИЧНИЙ ФОН · СМІТНИК У КАДРІ";
+  feedbackEl.textContent=index===0?"Помилка композиції. Клієнтці не подобається кадр: позаду ходять люди й їздять машини, а дорожній шум заважатиме голосу. Спробуй обрати спокійніший фон. +2 XP.":"Клієнтці подобається тераса — фон естетичний і пасує юридичному блогу. Але помічаєш смітник збоку. Як прибрати його з кадру? +5 XP.";
+ }else if(stepIndex===1){
+  document.getElementById("sceneLabel").textContent=index===0?"КРУПНІСТЬ: 1×":index===1?"КРУПНІСТЬ: 2×":"КРУПНІСТЬ: 3×";
+  document.getElementById("sceneStatus").textContent=index===0?"СМІТНИК ЩЕ ВИДНО":index===1?"ЧИСТИЙ ЗБАЛАНСОВАНИЙ КАДР":"ЗАНАДТО КРУПНО";
+  feedbackEl.textContent=index===0?"Ще не ідеально: на 1× видно багато простору, а смітник усе ще потрапляє в кадр. Спробуй наблизити зум і перевір пропорції. +2 XP.":index===1?"Саме те! На 2× героїня виглядає пропорційно, кадр залишається природним, а смітник зникає за межами кадру. Клієнтка задоволена. +5 XP.":"Перебір: на 3× у кадрі майже лише голова. Кадр затісний, немає повітря й контексту. Повернися до збалансованого плану. +2 XP.";
  }else{
   feedbackEl.textContent=(index===s.correct?"Вдале рішення. +5 XP. ":"Для цього завдання є надійніший варіант. +2 XP. ")+s.why;
  }
