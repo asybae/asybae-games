@@ -34,7 +34,8 @@
  .frame-back{position:absolute;width:min(78%,350px);aspect-ratio:4/5;border:1px solid #b4a5c3;border-radius:190px 190px 24px 24px;transform:rotate(8deg);background:#e8e0ed}
  .frame-front{position:relative;width:min(76%,330px);aspect-ratio:4/5;border-radius:190px 190px 24px 24px;border:1px solid rgba(32,30,29,.14);background:linear-gradient(145deg,#e8e0d5 0%,#d9cfe4 55%,#f7f2ea 100%);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;box-shadow:0 24px 60px #59456d14}
  .viewfinder{width:100%;height:174px;position:relative;overflow:hidden;border:1px solid #fffdf9aa;background:linear-gradient(180deg,#b9a8c9 0%,#e7d9c8 60%,#b8a88e 100%);margin-bottom:18px}
- .vf-corner{position:absolute;width:15px;height:15px;border-color:#fffdf9;border-style:solid;z-index:2}.vf-corner.tl{top:8px;left:8px;border-width:2px 0 0 2px}.vf-corner.tr{top:8px;right:8px;border-width:2px 2px 0 0}.vf-corner.bl{bottom:8px;left:8px;border-width:0 0 2px 2px}.vf-corner.br{bottom:8px;right:8px;border-width:0 2px 2px 0}
+ .hero-street-scene{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;animation:hero-street-life 8s ease-in-out infinite alternate}@keyframes hero-street-life{from{filter:saturate(.92) brightness(1)}to{filter:saturate(1.08) brightness(1.04)}}
+.vf-corner{position:absolute;width:15px;height:15px;border-color:#fffdf9;border-style:solid;z-index:2}.vf-corner.tl{top:8px;left:8px;border-width:2px 0 0 2px}.vf-corner.tr{top:8px;right:8px;border-width:2px 2px 0 0}.vf-corner.bl{bottom:8px;left:8px;border-width:0 0 2px 2px}.vf-corner.br{bottom:8px;right:8px;border-width:0 2px 2px 0}
  .scene-sun{position:absolute;width:35px;height:35px;border-radius:50%;background:#f8f0d9;top:24px;right:28px}.scene-horizon{position:absolute;left:0;right:0;bottom:0;height:55%;background:linear-gradient(145deg,#9c8aa9,#786b81)}.scene-subject{position:absolute;bottom:23px;left:44%;width:27px;height:49px;border-radius:14px 14px 4px 4px;background:#39333e;z-index:1}.scene-subject:before{content:"";position:absolute;top:-19px;left:5px;width:18px;height:18px;border-radius:50%;background:#39333e}.scene-grid{position:absolute;inset:0;background:linear-gradient(90deg,transparent 32.9%,#fffdf95c 33.3%,transparent 33.7%,transparent 66.2%,#fffdf95c 66.6%,transparent 67%),linear-gradient(0deg,transparent 32.9%,#fffdf95c 33.3%,transparent 33.7%,transparent 66.2%,#fffdf95c 66.6%,transparent 67%)}
  .frame-caption{font:italic 24px/1.1 Georgia,serif}.frame-num{font-size:8px;letter-spacing:1.1px;line-height:1.5;margin-top:12px;color:#554d5e;text-align:center}.rec-dot{display:inline-block;width:6px;height:6px;background:#b94e4e;border-radius:50%;vertical-align:middle}
  .camera-float{position:absolute;left:-2%;top:14%;z-index:3;background:#fffdf9;border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 12px 35px #201e1d14;transform:rotate(-8deg)}
@@ -364,8 +365,18 @@
  <div class="frame-front">
    <div class="viewfinder">
      <span class="vf-corner tl"></span><span class="vf-corner tr"></span><span class="vf-corner bl"></span><span class="vf-corner br"></span>
-     <div class="scene-sun"></div><div class="scene-horizon"></div><div class="scene-subject"></div>
-     <div class="scene-grid"></div>
+     <svg class="hero-street-scene" viewBox="0 0 360 220" role="img" aria-label="Вулиця, кафе, перехожі й автомобіль у кадрі">
+       <defs><linearGradient id="streetSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cbbbd8"/><stop offset="1" stop-color="#f0dfcf"/></linearGradient><linearGradient id="streetWall" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9d8c5"/><stop offset="1" stop-color="#cbb6a4"/></linearGradient></defs>
+       <rect width="360" height="220" fill="url(#streetSky)"/><circle cx="287" cy="36" r="19" fill="#f7edcc"/>
+       <path d="M0 22L84 5 115 137 0 151Z" fill="#c8b8aa"/><path d="M8 30L75 18 91 79 16 88Z" fill="#8b7b91"/><path d="M17 40L70 31 79 67 25 76Z" fill="#d8c9d9"/>
+       <path d="M214 25L360 9V160L204 150Z" fill="url(#streetWall)"/><rect x="230" y="40" width="94" height="69" rx="2" fill="#6d5d69"/><rect x="238" y="47" width="78" height="54" fill="#b8c3c0"/><path d="M235 40L329 40 340 58 225 58Z" fill="#f8f1e7"/><path d="M225 58H340L333 66H231Z" fill="#a58db5"/><rect x="243" y="111" width="66" height="6" fill="#786777"/><rect x="249" y="117" width="4" height="24" fill="#77666b"/><rect x="300" y="117" width="4" height="24" fill="#77666b"/>
+       <path d="M0 143L360 134V220H0Z" fill="#857987"/><path d="M0 170L360 158" stroke="#d9d0d5" stroke-width="2" opacity=".65"/>
+       <g transform="translate(22 144)"><path d="M0 18L9 4H54L65 18V32H0Z" fill="#e8e0d5" stroke="#403943" stroke-width="2"/><path d="M14 6H48L55 17H7Z" fill="#9dabb0"/><circle cx="14" cy="32" r="7" fill="#39333e"/><circle cx="51" cy="32" r="7" fill="#39333e"/></g>
+       <g transform="translate(104 112)"><circle cx="12" cy="8" r="7" fill="#51434e"/><path d="M3 17Q12 12 21 17L26 48H-2Z" fill="#65556c"/><path d="M5 47L2 70M18 47L23 70" stroke="#39333e" stroke-width="6" stroke-linecap="round"/></g>
+       <g transform="translate(166 105)"><circle cx="11" cy="8" r="7" fill="#51434e"/><path d="M2 18Q11 13 20 18L24 47H-2Z" fill="#d6c5ad"/><path d="M5 46L2 68M17 46L22 68" stroke="#39333e" stroke-width="6" stroke-linecap="round"/></g>
+       <g transform="translate(321 139)"><rect width="22" height="38" rx="3" fill="#4d4650"/><path d="M-3 0H25L22 -5H0Z" fill="#6b5d70"/></g>
+       <g opacity=".4" stroke="#fff" stroke-width="1"><path d="M120 0V220M240 0V220M0 73H360M0 146H360"/></g>
+     </svg>
    </div>
    <div class="frame-caption">Ти за камерою.<br>Що робитимеш?</div>
    <div class="frame-num"><span class="rec-dot"></span> РЕАЛЬНІ УМОВИ · ТВОЇ РІШЕННЯ</div>
