@@ -84,6 +84,66 @@
  .feedback{min-height:25px;margin-top:13px;font-size:12px;color:#655271;line-height:1.6}
  .progress{height:3px;background:#ded6e7;border-radius:99px;overflow:hidden;margin-top:20px}
  .progress span{display:block;width:0;height:100%;background:var(--lilac);transition:width .2s}
+
+ .game-grid-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .level-preview{display:flex;gap:7px;margin:0 0 22px}
+ .level-dot{width:27px;height:27px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;font-size:9px;color:var(--muted)}
+ .level-dot.active{background:var(--lilac);border-color:var(--lilac);color:white}
+ .level-dot.boss{border-color:#b78b83;color:#9a5e52}
+ .coming-soon{margin:0 0 22px;color:var(--muted);font-size:11px;line-height:1.5}
+ .game-card .play:disabled{opacity:.55;cursor:not-allowed;transform:none;background:transparent;color:var(--muted);border-color:var(--line)}
+ .sim-dialog{width:min(920px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow-y:auto}
+ .sim-inner{padding:clamp(16px,3vw,30px)}
+ .sim-inner h2{font-size:clamp(27px,4vw,42px);margin:17px 0 7px;letter-spacing:-1.5px}
+ .sim-stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(200px,.85fr);gap:14px;margin:18px 0}
+ .sim-scene{position:relative;min-height:275px;aspect-ratio:4/3;overflow:hidden;border-radius:15px;background:#d8e3e8;isolation:isolate;transition:filter .25s}
+ .scene-sky{position:absolute;inset:0 0 43%;background:linear-gradient(115deg,#d8e4e8,#f2d8b2 65%,#f7e9c9)}
+ .scene-buildings{position:absolute;inset:15% 0 36%;background:linear-gradient(90deg,transparent 0 5%,#c7bdb4 5% 18%,transparent 18% 24%,#d7c7b5 24% 41%,transparent 41% 48%,#b9c5c4 48% 67%,transparent 67% 74%,#c7bdb4 74% 92%,transparent 92%);opacity:.85}
+ .scene-buildings:after{content:"";position:absolute;inset:10% 0 0;background:repeating-linear-gradient(90deg,transparent 0 27px,#8e9893 28px 30px,transparent 31px 49px);opacity:.45}
+ .scene-trees{position:absolute;left:0;right:0;bottom:31%;height:35%;background:radial-gradient(ellipse at 15% 65%,#718b70 0 15%,transparent 16%),radial-gradient(ellipse at 28% 42%,#82967b 0 20%,transparent 21%),radial-gradient(ellipse at 76% 47%,#81927a 0 19%,transparent 20%),radial-gradient(ellipse at 88% 68%,#71886d 0 16%,transparent 17%)}
+ .scene-ground{position:absolute;inset:58% 0 0;background:linear-gradient(#c7b9a5,#9f9a8b)}
+ .scene-road{position:absolute;left:0;right:0;bottom:0;height:28%;background:#777b7b;opacity:.86}
+ .scene-road:after{content:"";position:absolute;left:0;right:0;top:48%;border-top:2px dashed #e7dfce}
+ .scene-car{position:absolute;right:-5%;bottom:17%;width:27%;height:13%;background:#a9b8bc;border-radius:35% 45% 12% 12%;border-bottom:5px solid #626c70;transition:opacity .2s}
+ .scene-car:before,.scene-car:after{content:"";position:absolute;bottom:-7px;width:18px;height:18px;border-radius:50%;background:#3d4244;border:3px solid #d2d2c9}
+ .scene-car:before{left:12%}.scene-car:after{right:12%}
+ .scene-bin{position:absolute;left:7%;bottom:24%;width:26px;height:37px;background:#626d68;border-radius:3px 3px 5px 5px;z-index:3;transition:opacity .2s,transform .2s}
+ .scene-bin:before{content:"";position:absolute;left:-3px;right:-3px;top:-4px;height:6px;border-radius:3px;background:#414a46}
+ .scene-bin span{position:absolute;left:7px;top:9px;width:12px;height:2px;background:#aab4ac;box-shadow:0 6px #aab4ac,0 12px #aab4ac}
+ .scene-walker{position:absolute;right:17%;bottom:24%;width:21px;height:68px;z-index:3;transition:opacity .2s,transform .2s}
+ .scene-walker i{position:absolute;left:6px;top:0;width:13px;height:13px;border-radius:50%;background:#66584f}
+ .scene-walker b{position:absolute;top:13px;left:2px;width:19px;height:34px;border-radius:8px 8px 4px 4px;background:#a16f76;box-shadow:-5px 28px 0 -2px #4f4e51,7px 28px 0 -2px #4f4e51}
+ .scene-subject{position:absolute;left:50%;bottom:18%;width:66px;height:151px;transform:translateX(-50%);z-index:5;transition:left .25s,bottom .25s,transform .25s,filter .25s}
+ .scene-subject i{position:absolute;top:0;left:22px;width:27px;height:30px;border-radius:45% 45% 42% 42%;background:#b98263;box-shadow:inset -5px 0 #9e6c57}
+ .scene-subject i:before{content:"";position:absolute;top:-4px;left:-1px;width:29px;height:13px;border-radius:50% 50% 20% 20%;background:#443b36}
+ .scene-subject b{position:absolute;top:28px;left:9px;width:54px;height:75px;border-radius:16px 16px 5px 5px;background:#e9e0d7;box-shadow:inset -12px 0 #d3c6bc}
+ .scene-subject span{position:absolute;top:96px;left:16px;width:14px;height:55px;background:#4f4a4b;transform:rotate(2deg);box-shadow:20px 0 #4f4a4b}
+ .scene-grid-overlay{position:absolute;inset:0;z-index:8;opacity:0;pointer-events:none;background:linear-gradient(90deg,transparent 32.8%,#fff9 33.1%,transparent 33.5%,transparent 66.2%,#fff9 66.5%,transparent 66.9%),linear-gradient(0deg,transparent 32.8%,#fff9 33.1%,transparent 33.5%,transparent 66.2%,#fff9 66.5%,transparent 66.9%);transition:opacity .2s}
+ .scene-label{position:absolute;top:10px;left:10px;z-index:9;padding:6px 8px;border-radius:5px;background:#201e1dbb;color:white;font-size:8px;letter-spacing:1px}
+ .scene-status{position:absolute;right:10px;bottom:10px;z-index:9;display:flex;align-items:center;gap:6px;padding:6px 8px;border-radius:5px;background:#201e1dbb;color:white;font-size:8px;letter-spacing:.8px}
+ .scene-rec{width:6px;height:6px;border-radius:50%;background:#e68172}
+ .sim-brief{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fffdf9}
+ .sim-brief p{font-size:13px;line-height:1.65;color:var(--ink);margin:10px 0 14px}
+ .brief-tags{display:flex;flex-wrap:wrap;gap:6px}.brief-tags span{padding:5px 7px;background:var(--lilac-pale);border-radius:99px;font-size:9px;color:#655271}
+ .sim-progress-row{display:flex;justify-content:space-between;gap:12px;margin-top:18px}
+ .sim-task{margin-top:18px;border:1px solid var(--line);border-radius:15px;padding:18px;background:#fffdf9}
+ .sim-kicker{font-size:9px;letter-spacing:1.5px;color:var(--lilac);font-weight:700}
+ .sim-task h3{font-size:20px;line-height:1.25;font-weight:500;letter-spacing:-.5px;margin:9px 0 5px}
+ .sim-task>p{font-size:12px;margin:0 0 12px}
+ .sim-choices{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .sim-choices .choice{font-size:12px;min-height:70px}
+ .sim-choices .choice[aria-pressed="true"]{border-color:var(--lilac);background:var(--lilac-pale)}
+ .sim-choices .choice:disabled{cursor:default;opacity:.9}
+ .sim-actions{justify-content:space-between}
+ .sim-actions .button{cursor:pointer}
+ .sim-actions .button:disabled{opacity:.45;cursor:not-allowed}
+ .sim-scene.location-road .scene-car{opacity:1}.sim-scene.location-quiet .scene-car{opacity:.18}.sim-scene.location-quiet .scene-walker{opacity:.2}
+ .sim-scene.frame-left .scene-subject{left:34%}.sim-scene.frame-right .scene-subject{left:66%}
+ .sim-scene.frame-clean .scene-bin,.sim-scene.frame-clean .scene-walker{opacity:0}
+ .sim-scene.frame-grid .scene-grid-overlay{opacity:.75}
+ .sim-scene.light-soft{filter:saturate(.92) brightness(1.08)}.sim-scene.light-harsh{filter:saturate(1.12) contrast(1.14)}.sim-scene.light-backlit .scene-subject{filter:brightness(.68)}
+ .sim-scene.sound-traffic .scene-car{opacity:1}.sim-scene.sound-quiet .scene-car{opacity:.15}
+ @media(max-width:650px){.game-grid-two{grid-template-columns:1fr}.sim-stage{grid-template-columns:1fr}.sim-scene{min-height:220px}.sim-choices{grid-template-columns:1fr}.sim-dialog{max-height:calc(100dvh - 12px)}.sim-inner{padding:16px}.sim-actions{flex-direction:column}.sim-actions .button{width:100%}}
  @media(max-width:800px){.hero{min-height:auto;grid-template-columns:1fr;gap:0;padding:62px 0}.hero-copy{font-size:15px}.visual{min-height:370px;margin-top:8px}.game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.intro-row{align-items:flex-start;flex-direction:column}.section-note{max-width:500px}.about{grid-template-columns:1fr}.about-mark{text-align:left}}
  @media(max-width:520px){.shell{width:calc(100% - 32px)}header{padding:20px 0}.wordmark{font-size:11px;letter-spacing:1.8px}nav{gap:14px;font-size:10px}nav a:last-child{display:none}h1{font-size:clamp(34px,8.5vw,44px);line-height:.94;letter-spacing:-.8px;margin:22px 0}.hero{padding:49px 0 54px}.visual{min-height:340px}.camera-float{left:0;top:12%;transform:scale(.78) rotate(-8deg);transform-origin:left top}.phone-float{right:0;top:7%;transform:scale(.82) rotate(8deg);transform-origin:right top}.viewfinder{height:145px}.frame-front{width:72%;}.frame-back{width:75%}.sticker{right:0;bottom:9%;font-size:9px}.game-grid{grid-template-columns:1fr;gap:12px}.game-card{min-height:220px}.game-mark{margin:15px 0}.about{margin-bottom:56px;padding:25px}.choices{grid-template-columns:1fr}footer{flex-direction:column}}
  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
@@ -132,43 +192,24 @@
 
  <section class="games" id="games">
  <div class="intro-row">
- <div>
- <div class="eyebrow">Обирай і пробуй</div>
- <h2 class="section-title">Обери <em>гру</em></h2>
+  <div><div class="eyebrow">Обирай свій напрям</div><h2 class="section-title">Дві гри. <em>Реальні навички.</em></h2></div>
+  <p class="section-note">Не вгадуй відповіді. Приймай рішення, дивись на наслідки й вчися знімати усвідомлено.</p>
  </div>
- <p class="section-note">У кожній грі є конкретне завдання. Обирай будь-яку й одразу пробуй.</p>
- </div>
- <div class="game-grid">
- <article class="game-card">
- <div class="game-index">МІСІЯ 01</div><div class="game-mark" aria-hidden="true"><svg viewBox="0 0 48 48" width="34" height="34"><rect x="5" y="7" width="38" height="34" rx="4" fill="#fffdf9" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 7v34M30.5 7v34M5 18.5h38M5 29.5h38" stroke="#9381ae" stroke-width="1.2"/><circle cx="30.5" cy="18.5" r="5" fill="#9381ae" fill-opacity=".35" stroke="currentColor" stroke-width="1.2"/></svg></div>
- <h3>Збери кадр</h3><p>Вирішуй, що залишити в кадрі, з якого ракурсу знімати й на чому зосередити увагу.</p>
- <button class="play" data-game="frame">Запустити гру <svg class="arrow-icon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M6 14 14 6M6.5 6H14v7.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
- </article>
- <article class="game-card">
- <div class="game-index">МІСІЯ 02</div><div class="game-mark" aria-hidden="true"><svg viewBox="0 0 48 48" width="34" height="34"><circle cx="24" cy="24" r="9" fill="#9381ae" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/><path d="M24 5v7M24 36v7M5 24h7M36 24h7M10.5 10.5l5 5M32.5 32.5l5 5M37.5 10.5l-5 5M15.5 32.5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="24" cy="24" r="3" fill="#9381ae"/></svg></div>
- <h3>Полювання на світло</h3><p>Знайди світло, яке підкреслить обличчя й додасть кадру об’єму.</p>
- <button class="play" data-game="light">Запустити гру <svg class="arrow-icon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M6 14 14 6M6.5 6H14v7.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
- </article>
- <article class="game-card">
- <div class="game-index">МІСІЯ 03</div><div class="game-mark" aria-hidden="true"><svg viewBox="0 0 48 48" width="34" height="34"><rect x="4" y="7" width="40" height="34" rx="3" fill="#fffdf9" stroke="currentColor" stroke-width="1.5"/><path d="M4 18h40M4 30h40" stroke="#9381ae" stroke-width="1.5"/><rect x="7" y="10" width="10" height="5" fill="#9381ae" fill-opacity=".4"/><rect x="20" y="21" width="13" height="6" fill="#9381ae" fill-opacity=".4"/><rect x="36" y="33" width="5" height="5" fill="#9381ae" fill-opacity=".6"/></svg></div>
- <h3>Плани мають значення</h3><p>Обирай план під задачу: показати місце, дію чи емоцію.</p>
- <button class="play" data-game="shots">Запустити гру <svg class="arrow-icon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M6 14 14 6M6.5 6H14v7.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
- </article>
- <article class="game-card">
- <div class="game-index">МІСІЯ 04</div><div class="game-mark" aria-hidden="true"><svg viewBox="0 0 48 48" width="34" height="34"><rect x="5" y="14" width="28" height="21" rx="4" fill="#fffdf9" stroke="currentColor" stroke-width="1.5"/><path d="m33 21 10-6v19l-10-6" fill="#9381ae" fill-opacity=".5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="19" cy="24.5" r="6" fill="#d9cfe4" stroke="currentColor" stroke-width="1.5"/><circle cx="19" cy="24.5" r="2.5" fill="#9381ae"/></svg></div>
- <h3>Рух без хаосу</h3><p>Знімай у русі плавно й лише тоді, коли це справді потрібно.</p>
- <button class="play" data-game="motion">Запустити гру <svg class="arrow-icon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M6 14 14 6M6.5 6H14v7.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
- </article>
- <article class="game-card">
- <div class="game-index">МІСІЯ 05</div><div class="game-mark" aria-hidden="true"><svg viewBox="0 0 48 48" width="34" height="34"><rect x="3" y="8" width="19" height="29" rx="2" fill="#fffdf9" stroke="currentColor" stroke-width="1.5"/><rect x="26" y="8" width="19" height="29" rx="2" fill="#d9cfe4" stroke="currentColor" stroke-width="1.5"/><path d="M7 30l5-7 4 4 3-5M29 30l5-8 4 5 3-3" fill="none" stroke="#9381ae" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
- <h3>Історія з трьох кадрів</h3><p>З’єднай три кадри так, щоб із них склалася маленька історія.</p>
- <button class="play" data-game="story">Запустити гру <svg class="arrow-icon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M6 14 14 6M6.5 6H14v7.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
- </article>
- <article class="game-card" style="background:linear-gradient(145deg,#e8e0ed,#fffdf9);">
- <div class="game-index">ТВОЯ ПРАКТИКА</div><div class="game-mark" aria-hidden="true"><svg viewBox="0 0 48 48" width="34" height="34"><rect x="11" y="3" width="26" height="42" rx="5" fill="#fffdf9" stroke="currentColor" stroke-width="1.7"/><rect x="15" y="9" width="18" height="26" rx="2" fill="#d9cfe4"/><circle cx="24" cy="40" r="1.5" fill="currentColor"/><path d="M18 20h12M24 14v12" stroke="#9381ae" stroke-width="1.5" stroke-linecap="round"/></svg></div>
- <h3>Пограйся з візуалом</h3><p>Обирай місію й перевіряй, як ти бачиш кадр.</p>
- <a class="play" href="#games">Почати з будь-якої</a>
- </article>
+ <div class="game-grid game-grid-two">
+  <article class="game-card">
+   <div class="game-index">ГРА 01 · 7 РІВНІВ У ПЛАНІ</div>
+   <div class="game-mark" aria-hidden="true"><svg viewBox="0 0 48 48" width="34" height="34"><rect x="5" y="9" width="38" height="30" rx="4" fill="#fffdf9" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="24" r="8" fill="#d9cfe4" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="24" r="3" fill="#9381ae"/><path d="M10 14h5M33 34h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+   <h3>Съёмка</h3><p>От первого разговорного видео до сложных клиентских съёмок. Свет, звук, планы, ракурсы, фон, перебивки и работа с людьми.</p>
+   <div class="level-preview"><span class="level-dot active">01</span><span class="level-dot">02</span><span class="level-dot">03</span><span class="level-dot">04</span><span class="level-dot">05</span><span class="level-dot">06</span><span class="level-dot boss">07</span></div>
+   <button class="play" data-game="shooting">Начать уровень 1 <svg class="arrow-icon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M6 14 14 6M6.5 6H14v7.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </article>
+  <article class="game-card">
+   <div class="game-index">ГРА 02 · РОЗРОБЛЯЄТЬСЯ</div>
+   <div class="game-mark" aria-hidden="true"><svg viewBox="0 0 48 48" width="34" height="34"><rect x="8" y="6" width="32" height="36" rx="4" fill="#fffdf9" stroke="currentColor" stroke-width="1.5"/><path d="M15 16h18M15 23h18M15 30h10" stroke="#9381ae" stroke-width="2" stroke-linecap="round"/><path d="m28 33 3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   <h3>Монтаж</h3><p>Ритм, склейки, работа со звуком, озвучка и музыка, цвет, последовательность кадров и готовый ролик.</p>
+   <div class="coming-soon">Сначала создаём и проверяем игру про съёмку</div>
+   <button class="play" disabled aria-disabled="true">Скоро</button>
+  </article>
  </div>
  </section>
 
@@ -184,52 +225,108 @@
  <footer><span>© ASYBAE GAMES · 2026</span><span>Грайся з кадром. Знімай по-своєму.</span></footer>
  </div>
 
- <dialog id="gameDialog" aria-labelledby="gameTitle">
- <div class="modal-inner">
- <div class="modal-top"><div class="eyebrow" id="gameMission">МІСІЯ 01 · 5 XP</div><button class="close" id="closeDialog" aria-label="Закрити"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="m6 6 8 8M14 6l-8 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button></div>
- <h2 id="gameTitle">Збери кадр</h2>
- <p id="gameIntro">Прочитай ситуацію й обери свій варіант.</p>
- <div class="mission"><strong id="question"></strong><div class="choices" id="choices"></div><div class="feedback" id="feedback" aria-live="polite"></div></div>
- <div class="modal-top"><span class="eyebrow" id="stepLabel">КРОК 1 ІЗ 3</span><span class="eyebrow" id="xpLabel">0 XP</span></div>
- <div class="progress"><span id="progressBar"></span></div>
- <div class="actions"><button class="button" id="nextBtn" disabled>Наступний крок</button><button class="button secondary" id="restartBtn">Почати спочатку</button></div>
- </div>
+ <dialog id="gameDialog" class="sim-dialog" aria-labelledby="gameTitle">
+  <div class="modal-inner sim-inner">
+   <div class="modal-top"><div class="eyebrow" id="gameMission">ИГРА 01 · УРОВЕНЬ 1</div><button class="close" id="closeDialog" aria-label="Закрыть"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="m6 6 8 8M14 6l-8 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button></div>
+   <h2 id="gameTitle">Разговорное видео на улице</h2>
+   <p id="gameIntro">Клиенту нужен вертикальный ролик с разборчивой речью и спокойным фоном. До записи найди решение для реальных условий.</p>
+   <div class="sim-stage">
+    <div class="sim-scene" id="simScene" aria-label="Иллюстрация уличной съёмочной сцены">
+     <div class="scene-sky"></div><div class="scene-buildings"></div><div class="scene-trees"></div><div class="scene-ground"></div>
+     <div class="scene-road"></div><div class="scene-car"></div><div class="scene-bin" id="sceneBin"><span></span></div>
+     <div class="scene-walker" id="sceneWalker"><i></i><b></b></div>
+     <div class="scene-subject" id="sceneSubject"><i></i><b></b><span></span></div>
+     <div class="scene-grid-overlay" id="sceneGrid"></div>
+     <div class="scene-label" id="sceneLabel">ПРЕДВАРИТЕЛЬНЫЙ КАДР</div>
+     <div class="scene-status"><span class="scene-rec"></span><span id="sceneStatus">КАМЕРА ГОТОВА</span></div>
+    </div>
+    <div class="sim-brief"><span class="eyebrow">ЗАДАНИЕ КЛИЕНТА</span><p>Сними вертикальное разговорное видео на улице. Человек должен быть главным в кадре, речь — разборчивой, изображение — естественным.</p><div class="brief-tags"><span>9:16</span><span>Речь в кадре</span><span>Натуральный свет</span></div></div>
+   </div>
+   <div class="sim-progress-row"><span class="eyebrow" id="stepLabel">ШАГ 1 ИЗ 5</span><span class="eyebrow" id="xpLabel">0 / 25 XP</span></div>
+   <div class="progress"><span id="progressBar"></span></div>
+   <div class="sim-task"><div class="sim-kicker" id="taskKicker">ШАГ 01 · ЛОКАЦИЯ</div><h3 id="question">Сначала выбери место съёмки</h3><p class="sim-hint" id="taskHint">Учитывай не только красоту фона, но и то, что будет слышно.</p><div class="choices sim-choices" id="choices"></div><div class="feedback" id="feedback" aria-live="polite"></div></div>
+   <div class="actions sim-actions"><button class="button" id="nextBtn" disabled>Следующий шаг</button><button class="button secondary" id="restartBtn">Начать заново</button></div>
+  </div>
  </dialog>
-
- <script>
- const missions = {
- frame:{title:"Збери кадр",intro:"Композиція допомагає спрямувати погляд глядача. Головне, щоб кожен елемент був на своєму місці.",steps:[
- {q:"Ти знімаєш людину біля вікна. Як зробити кадр виразнішим?",opts:["Поставити людину точно в центр за будь-яких умов","Розмістити людину ближче до третини й залишити простір у напрямку погляду","Залишити якомога більше випадкових предметів навколо"],correct:1,why:"Так кадр стає збалансованішим. Центр теж працює, якщо ти обрав його навмисно."},
- {q:"Герой дивиться праворуч. Де логічно залишити більше простору?",opts:["Праворуч, у напрямку погляду","Ліворуч, за спиною героя","Простір не має значення"],correct:0,why:"Залиш простір перед обличчям, щоб погляд героя вів глядача далі."},
- {q:"На фоні за головою героя стирчить яскравий предмет. Що зробиш?",opts:["Не зважатиму, головне герой","Зміню кут, щоб прибрати зайве","Додам ще предметів для балансу"],correct:1,why:"Прибери зайве з фону. Іноді достатньо зміститися на крок."}]},
- light:{title:"Полювання на світло",intro:"Світло додає обличчю об’єму й задає настрій. Звертай увагу, звідки воно падає.",steps:[
- {q:"Обличчя здається пласким. Яке світло спробуєш спершу?",opts:["М’яке бокове світло від вікна","Поставлю людину спиною до темної стіни й зніму без змін","Зніматиму прямо під жорстким верхнім світлом"],correct:0,why:"М’яке бокове світло створює тіні й робить обличчя об’ємнішим."},
- {q:"На обличчі жорсткі тіні від прямого сонця. Що зробити?",opts:["Попросити героя стати в розсіяне світло біля тіні","Підняти експозицію до повністю білої шкіри","Швидко рухати телефон під час зйомки"],correct:0,why:"Відкрита тінь або світло, розсіяне фіранкою, допоможуть отримати м’якше освітлення."},
- {q:"Хочеш відділити темне волосся від темного фону. Що допоможе?",opts:["Зробити фон ще темнішим без змін","Трохи змінити позицію й додати світло ззаду або збоку","Застосувати максимальне цифрове збільшення"],correct:1,why:"Світло збоку або ззаду допоможе відділити волосся від фону."}]},
- shots:{title:"Плани мають значення",intro:"Крупність визначає, скільки інформації отримує глядач і на чому фокусується історія.",steps:[
- {q:"Хочеш показати місце, атмосферу та героя в просторі. Який план обрати?",opts:["Дуже крупний, лише очі","Загальний, герой разом з оточенням","Деталь, лише пальці"],correct:1,why:"Загальний план знайомить з місцем і показує взаємозв’язок героя з оточенням."},
- {q:"Герой наносить крем на руку. Що найкраще покаже дію?",opts:["Крупний або детальний план рук","Далекий загальний план з іншого кінця кімнати","Порожній кадр стіни"],correct:0,why:"Деталь допомагає побачити фактуру та дію й може стати виразним монтажним акцентом."},
- {q:"Монтуєш коротке відео: місце, дія, емоція. Яка послідовність логічна?",opts:["Три однакові крупні плани","Загальний → середній → крупний","Крупний → той самий крупний → той самий крупний"],correct:1,why:"Послідовність від контексту до деталі дає глядачу зрозуміти місце, дію та емоцію."}]},
- motion:{title:"Рух без хаосу",intro:"Спочатку виріши, що хочеш показати. Потім обирай рух камери.",steps:[
- {q:"Хочеш показати образ людини з голови до ніг без метушні. Що краще?",opts:["Повільно й стабільно провести телефоном згори донизу","Постійно смикати телефоном у різні боки","Безперервно крутити телефон навколо себе"],correct:0,why:"Повільний контрольований рух дає глядачу час роздивитися образ."},
- {q:"Герой іде вперед, а ти хочеш зберегти відчуття руху. Як знімати?",opts:["Відступати плавно перед героєм, якщо це безпечно","Бігти спиною вперед, дивлячись лише в екран","Робити різкі зуми кожну секунду"],correct:0,why:"Плавний супровід підтримує напрямок і тримає героя в кадрі. Безпека важливіша за кадр."},
- {q:"Коли статика краща за рух?",opts:["Ніколи, камера має рухатися завжди","Коли композиція вже сильна, а рух нічого не додає","Лише коли телефон розрядився"],correct:1,why:"Статичний кадр теж може працювати. Рухай камеру лише тоді, коли це щось додає."}]},
- story:{title:"Історія з трьох кадрів",intro:"Три різні плани можуть розповісти цілу історію. Нехай кожен показує щось нове.",steps:[
- {q:"Знімаєш приготування кави. З чого логічно почати?",opts:["Деталь пари на чашці без контексту й одразу кінець","Загальний план місця або героя біля кавомашини","Випадковий кадр підлоги"],correct:1,why:"Перший кадр знайомить глядача з місцем і ситуацією."},
- {q:"Який кадр логічно додати після загального?",opts:["Середній план дії, герой готує каву","Повторити той самий кадр без змін","Зняти зовсім іншу кімнату"],correct:0,why:"Середній план показує дію й веде історію вперед."},
- {q:"Чим можна завершити послідовність?",opts:["Деталлю кави, чашки або реакції героя","Ще одним випадковим загальним планом","Порожнім кадром без зв’язку з дією"],correct:0,why:"Фінальна деталь підсумовує дію та дає глядачу приємну точку завершення."}]}
- };
- const dialog=document.getElementById("gameDialog");
- const titleEl=document.getElementById("gameTitle"),introEl=document.getElementById("gameIntro"),missionEl=document.getElementById("gameMission"),questionEl=document.getElementById("question"),choicesEl=document.getElementById("choices"),feedbackEl=document.getElementById("feedback"),stepLabel=document.getElementById("stepLabel"),xpLabel=document.getElementById("xpLabel"),bar=document.getElementById("progressBar"),nextBtn=document.getElementById("nextBtn");
- let activeKey="frame",stepIndex=0,earned=0,answered=false;
- function renderStep(){const m=missions[activeKey],s=m.steps[stepIndex];titleEl.textContent=m.title;introEl.textContent=m.intro;missionEl.textContent="МІСІЯ "+String(Object.keys(missions).indexOf(activeKey)+1).padStart(2,"0")+" · +5 XP ЗА КРОК";questionEl.textContent=s.q;choicesEl.replaceChildren();feedbackEl.textContent="";answered=false;nextBtn.disabled=true;nextBtn.textContent=stepIndex===m.steps.length-1?"Завершити місію":"Наступний крок";s.opts.forEach((opt,i)=>{const b=document.createElement("button");b.className="choice";b.type="button";b.textContent=opt;b.addEventListener("click",()=>choose(i,b));choicesEl.appendChild(b)});stepLabel.textContent="КРОК "+(stepIndex+1)+" ІЗ "+m.steps.length;xpLabel.textContent=earned+" XP";bar.style.width=(stepIndex/m.steps.length*100)+"%"}
- function choose(index,button){if(answered)return;answered=true;const m=missions[activeKey],s=m.steps[stepIndex],correct=index===s.correct;if(correct)earned+=5;[...choicesEl.children].forEach((b,i)=>{b.disabled=true;if(i===s.correct)b.style.borderColor="#9381ae";if(i===index&&!correct)b.style.background="#f1e2dc"});feedbackEl.textContent=(correct?"Так, саме так! +5 XP. ":"Не зовсім. ") + s.why;xpLabel.textContent=earned+" XP";nextBtn.disabled=false}
- document.querySelectorAll("[data-game]").forEach(b=>b.addEventListener("click",()=>{activeKey=b.dataset.game;stepIndex=0;renderStep();dialog.showModal()}));
- document.getElementById("closeDialog").addEventListener("click",()=>dialog.close());
- document.getElementById("restartBtn").addEventListener("click",()=>{stepIndex=0;renderStep()});
- nextBtn.addEventListener("click",()=>{const m=missions[activeKey];if(stepIndex<m.steps.length-1){stepIndex++;renderStep()}else{questionEl.textContent="Місію пройдено! Зроблено "+m.steps.length+" кроки. Спробуй іншу гру або повтори цю, щоб закріпити навичку.";choicesEl.replaceChildren();feedbackEl.textContent="Твій результат: "+earned+" XP. Пам’ятай: сильний кадр починається з усвідомленого рішення.";stepLabel.textContent="МІСІЮ ЗАВЕРШЕНО";bar.style.width="100%";nextBtn.textContent="Готово";nextBtn.onclick=null;nextBtn.addEventListener("click",()=>dialog.close(),{once:true});nextBtn.disabled=false}});
- dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
- dialog.addEventListener("close",()=>{nextBtn.onclick=null;nextBtn.replaceWith(nextBtn.cloneNode(true));});
- </script>
 </body>
+</html <script>
+ const tasks = [
+  {key:"location",kicker:"ШАГ 01 · ЛОКАЦИЯ",title:"Где лучше снимать?",hint:"Красивый фон не всегда означает хорошую локацию. Учитывай шум и то, что происходит позади героя.",options:[
+   {label:"У самой дороги: динамичный городской фон",tag:"Больше движения",classes:["location-road"],feedback:"Это может сработать, если нужен живой городской вайб и микрофон справится с шумом. Но для спокойного экспертного видео машины будут конкурировать с речью. Если остаёшься здесь, сначала проверь звук.",score:3},
+   {label:"В стороне от дороги, где фон спокойнее",tag:"Меньше шума",classes:["location-quiet"],feedback:"Хорошая отправная точка для разговорного видео: меньше дорожного шума и отвлекающего движения. Всё равно проверь фон и звук — тихое место не гарантирует идеальную запись.",score:5},
+   {label:"На открытом солнце ради яркой картинки",tag:"Сложный свет",classes:["location-road"],feedback:"Солнечная локация может дать выразительный образ, но жёсткий свет способен создать резкие тени и пересветы. Это осознанный вариант, если ты контролируешь свет и проверяешь лицо на экране.",score:3},
+   {label:"Выбрать красивый фон, даже если рядом шумно",tag:"Приоритет фона",classes:["location-road"],feedback:"Визуально место может подойти, но не забывай о главной задаче: зритель должен понимать речь. Можно оставить эту локацию, если удастся отдалиться от шума или использовать подходящий микрофон.",score:3}
+  ]},
+  {key:"frame",kicker:"ШАГ 02 · КОМПОЗИЦИЯ",title:"Что сделать с фоном?",hint:"За героем мусорная урна и прохожий. Не обязательно менять локацию: сначала попробуй решить задачу кадрированием и позицией.",options:[
+   {label:"Сместиться на шаг и убрать отвлекающие объекты за пределы кадра",tag:"Изменить точку",classes:["frame-clean","frame-left"],feedback:"Часто это самый быстрый способ. Небольшое смещение камеры может убрать урну и прохожего, сохранив естественный фон. Проверь, не появились ли за головой другие линии или яркие пятна.",score:5},
+   {label:"Оставить героя по центру, включить сетку и проверить края кадра",tag:"Проверить кадр",classes:["frame-grid"],feedback:"Центральная композиция вполне может работать. Сетка помогает проверить баланс, но сама по себе не убирает мусор и прохожих. Посмотри на весь кадр, особенно за головой и у краёв.",score:4},
+   {label:"Попросить героя встать ближе к камере, чтобы фон стал менее заметным",tag:"Изменить дистанцию",classes:["frame-right"],feedback:"Это может сделать фон менее заметным, но изменит крупность и перспективу. Не подходи настолько близко, чтобы лицо искажалось, а кадр стал тесным. Проверь, что осталось в фоне.",score:4},
+   {label:"Не менять ничего: зритель будет смотреть только на лицо",tag:"Оставить как есть",classes:[],feedback:"Иногда живой фон уместен, но зритель не перестаёт замечать яркие объекты и движение. Сделай тестовый кадр и оцени, что первым притягивает взгляд.",score:2}
+  ]},
+  {key:"light",kicker:"ШАГ 03 · СВЕТ",title:"Как поставить человека относительно солнца?",hint:"Смотри не только на яркость сцены, но и на тени на лице и детали в светлых участках.",options:[
+   {label:"Найти открытую тень и повернуть лицо к мягкому отражённому свету",tag:"Мягкий свет",classes:["light-soft"],feedback:"Для спокойного разговорного видео это часто надёжный выбор: тени становятся мягче, а лицо легче экспонировать. Проверь, чтобы фон не оказался намного ярче героя.",score:5},
+   {label:"Оставить человека под прямым солнцем и поднять экспозицию",tag:"Жёсткий свет",classes:["light-harsh"],feedback:"Жёсткий солнечный свет может выглядеть намеренно и энергично, но повышение экспозиции не уберёт тени и может выбить детали кожи. Проверь лицо и светлые участки; при необходимости измени позицию.",score:3},
+   {label:"Поставить человека спиной к солнцу ради контрового света",tag:"Контровой свет",classes:["light-backlit"],feedback:"Контровой свет красиво отделяет героя от фона, но телефон может сделать лицо слишком тёмным. Этот вариант работает, если отдельно контролировать экспозицию лица или добавить отражённый свет.",score:3},
+   {label:"Повернуть человека так, чтобы свет падал сбоку",tag:"Боковой свет",classes:["light-soft"],feedback:"Боковой свет добавляет объём и может выглядеть выразительно. Следи за контрастом: если одна сторона лица слишком тёмная, попробуй повернуть героя ближе к свету или использовать отражатель.",score:4}
+  ]},
+  {key:"sound",kicker:"ШАГ 04 · ЗВУК",title:"Как записать разборчивую речь?",hint:"Машины и ветер могут испортить даже красивый кадр. Лучшее решение зависит от доступного оборудования.",options:[
+   {label:"Сделать тест и прослушать его в наушниках; приблизить микрофон ко рту",tag:"Проверить звук",classes:["sound-quiet"],feedback:"Отличная привычка. Короткий тест выявит ветер, трение одежды и фоновый шум до полной записи. Если есть петличка, закрепи её так, чтобы одежда не задевала капсюль.",score:5},
+   {label:"Записать на встроенный микрофон с расстояния нескольких метров",tag:"Без оборудования",classes:["sound-traffic"],feedback:"Можно обойтись встроенным микрофоном, если подойти ближе и найти тихое место. С нескольких метров голос обычно теряется на фоне улицы. Сделай тест и сравни уровни речи и шума.",score:2},
+   {label:"Оставить дорожный шум — он создаёт атмосферу",tag:"Атмосфера",classes:["sound-traffic"],feedback:"Фоновый звук иногда нужен для атмосферы, но речь должна оставаться понятной. Это может сработать при контролируемом уровне шума и подходящем микрофоне. Обязательно проверь запись.",score:3},
+   {label:"Надеть петличку и сразу записывать без проверки",tag:"Петличка",classes:["sound-quiet"],feedback:"Петличка помогает приблизить микрофон к голосу, но не гарантирует чистый звук: возможны ветер, трение ткани и плохое подключение. Запиши короткий тест и прослушай его.",score:4}
+  ]},
+  {key:"settings",kicker:"ШАГ 05 · НАСТРОЙКИ И ПРОВЕРКА",title:"Что проверить перед записью?",hint:"Сначала задай параметры под задачу, затем проверь фокус, экспозицию, ориентацию и тестовый фрагмент.",options:[
+   {label:"Вертикальный кадр, подходящее качество и fps, фокус на лице, тест 5–10 секунд",tag:"Полная проверка",classes:["frame-grid"],feedback:"Это надёжный чек-лист. Выбирай частоту кадров под задачу и свет, не используй цифровой зум без необходимости, проверь фокус и посмотри тестовый фрагмент со звуком перед основной записью.",score:5},
+   {label:"Включить максимальное разрешение и начать без теста",tag:"Сначала качество",classes:[],feedback:"Высокое разрешение не исправит промах фокуса, плохой звук или неверную экспозицию. Настройки должны соответствовать задаче и возможностям устройства. Короткий тест часто экономит всю съёмку.",score:2},
+   {label:"Зафиксировать фокус на фоне, чтобы камера не меняла резкость",tag:"Фокус на фоне",classes:["frame-grid"],feedback:"Фокус на фоне уместен, если фон — главный объект, но в разговорном видео зритель следит за человеком. Проверь, что лицо остаётся резким и автофокус не переключается на прохожих.",score:2},
+   {label:"Проверить кадр и фокус, но не прослушивать звук",tag:"Проверка изображения",classes:["frame-grid"],feedback:"Изображение может быть идеальным, а речь — непригодной для публикации. Проверка должна включать и картинку, и звук. Прослушай короткий тест, особенно на улице.",score:3}
+  ]}
+ ];
+ const dialog=document.getElementById("gameDialog");
+ const titleEl=document.getElementById("gameTitle"),introEl=document.getElementById("gameIntro"),missionEl=document.getElementById("gameMission"),questionEl=document.getElementById("question"),hintEl=document.getElementById("taskHint"),kickerEl=document.getElementById("taskKicker"),choicesEl=document.getElementById("choices"),feedbackEl=document.getElementById("feedback"),stepLabel=document.getElementById("stepLabel"),xpLabel=document.getElementById("xpLabel"),bar=document.getElementById("progressBar"),nextBtn=document.getElementById("nextBtn"),scene=document.getElementById("simScene"),sceneLabel=document.getElementById("sceneLabel"),sceneStatus=document.getElementById("sceneStatus");
+ let stepIndex=0,earned=0,answered=false,selectedScore=0;
+ function resetScene(){scene.className="sim-scene";sceneLabel.textContent="ПРЕДВАРИТЕЛЬНЫЙ КАДР";sceneStatus.textContent="КАМЕРА ГОТОВА";}
+ function renderStep(){
+  const t=tasks[stepIndex];answered=false;selectedScore=0;
+  missionEl.textContent="ИГРА 01 · РІВЕНЬ 1";
+  kickerEl.textContent=t.kicker;questionEl.textContent=t.title;hintEl.textContent=t.hint;
+  choicesEl.replaceChildren();feedbackEl.textContent="";nextBtn.disabled=true;
+  nextBtn.textContent=stepIndex===tasks.length-1?"Завершить уровень":"Следующий шаг";
+  t.options.forEach((opt,i)=>{const b=document.createElement("button");b.className="choice";b.type="button";b.innerHTML="<strong>"+opt.label+"</strong><br><span>"+opt.tag+"</span>";b.addEventListener("click",()=>choose(i,b));choicesEl.appendChild(b)});
+  stepLabel.textContent="ШАГ "+(stepIndex+1)+" ИЗ "+tasks.length;xpLabel.textContent=earned+" / 25 XP";bar.style.width=(stepIndex/tasks.length*100)+"%";
+  sceneStatus.textContent=["ЛОКАЦИЯ НЕ ВЫБРАНА","КАДР НЕ СОБРАН","СВЕТ НЕ ПРОВЕРЕН","ЗВУК НЕ ПРОВЕРЕН","ТЕСТ НЕ ЗАПИСАН"][stepIndex];
+ }
+ function choose(index,button){
+  if(answered)return;answered=true;
+  const t=tasks[stepIndex],opt=t.options[index];selectedScore=opt.score;earned+=opt.score;
+  scene.className="sim-scene";
+  opt.classes.forEach(c=>scene.classList.add(c));
+  if(opt.classes.includes("frame-clean"))sceneLabel.textContent="ФОН ОЧИЩЕН КАДРИРОВАНИЕМ";
+  else if(opt.classes.includes("frame-grid"))sceneLabel.textContent="СЕТКА КАДРА ВКЛЮЧЕНА";
+  else if(opt.classes.includes("light-soft"))sceneLabel.textContent="МЯГЧЕЕ ОСВЕЩЕНИЕ";
+  else if(opt.classes.includes("light-harsh"))sceneLabel.textContent="ЖЁСТКИЙ СВЕТ";
+  else if(opt.classes.includes("light-backlit"))sceneLabel.textContent="КОНТРОВОЙ СВЕТ";
+  else if(opt.classes.includes("location-quiet")||opt.classes.includes("sound-quiet"))sceneLabel.textContent="МЕНЬШЕ ОТВЛЕКАЮЩЕГО ШУМА";
+  else sceneLabel.textContent="ТВОЁ РЕШЕНИЕ";
+  sceneStatus.textContent=opt.tag.toUpperCase();
+  [...choicesEl.children].forEach((b,i)=>{b.disabled=true;if(i===index)b.setAttribute("aria-pressed","true")});
+  feedbackEl.innerHTML="<strong>"+opt.tag+".</strong> "+opt.feedback;
+  xpLabel.textContent=earned+" / 25 XP";nextBtn.disabled=false;
+ }
+ function startGame(){stepIndex=0;earned=0;resetScene();renderStep();if(!dialog.open)dialog.showModal()}
+ document.querySelectorAll('[data-game="shooting"]').forEach(b=>b.addEventListener("click",startGame));
+ document.getElementById("closeDialog").addEventListener("click",()=>dialog.close());
+ document.getElementById("restartBtn").addEventListener("click",()=>startGame());
+ nextBtn.addEventListener("click",()=>{
+  if(stepIndex<tasks.length-1){stepIndex++;renderStep();return}
+  questionEl.textContent="Уровень пройден. Теперь ты проверяешь съёмку до того, как клиент уйдёт.";
+  hintEl.textContent="Это прототип первой миссии. В полной версии к решениям добавятся более точные интерактивные настройки и сравнение результата.";
+  kickerEl.textContent="УРОВЕНЬ ЗАВЕРШЁН";choicesEl.replaceChildren();
+  feedbackEl.textContent="Твой результат: "+earned+" из 25 XP. Баллы показывают, насколько выбранные решения подходят этому брифу, а не то, что остальные варианты всегда неправильны.";
+  stepLabel.textContent="МИССИЯ ЗАВЕРШЕНА";bar.style.width="100%";nextBtn.textContent="Готово";nextBtn.disabled=false;
+  nextBtn.onclick=()=>dialog.close();
+ });
+ dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
+ dialog.addEventListener("close",()=>{nextBtn.onclick=null});
+ </script></body>
 </html>
