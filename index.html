@@ -185,8 +185,11 @@
    .section-title { font-size: clamp(36px, 9vw, 48px); line-height: 1; letter-spacing: -1.8px; }
    .section-note { font-size: 13px; line-height: 1.65; }
    .games { padding: 18px 0 48px; }
-   .game-grid, .game-grid-two { grid-template-columns: minmax(0, 1fr) !important; gap: 12px; margin-top: 22px; }
-   .game-card { width: 100%; min-width: 0; min-height: 0; padding: 24px 22px; border-radius: 22px; }
+   .game-grid, .game-grid-two.game-carousel { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 12px) / 2); grid-template-columns: none !important; gap: 12px; margin-top: 22px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: 1px; padding: 2px 1px 14px; scrollbar-width: thin; scrollbar-color: var(--lilac) transparent; -webkit-overflow-scrolling: touch; }
+   .game-grid.game-carousel::-webkit-scrollbar { height: 3px; }
+   .game-grid.game-carousel::-webkit-scrollbar-thumb { background: var(--lilac); border-radius: 99px; }
+   .game-card { width: 100%; min-width: 0; min-height: 0; padding: 20px 16px; border-radius: 22px; scroll-snap-align: start; }
+   .game-card .play { max-width: 100%; white-space: normal; text-align: center; }
    .game-index { font-size: 9px; letter-spacing: 2px; line-height: 1.7; }
    .game-mark { width: 48px; height: 48px; margin: 18px 0 16px; }
    .game-card h3 { font-size: 25px; line-height: 1.15; margin-bottom: 10px; }
@@ -212,6 +215,9 @@
    .sim-choices .choice, .choice { min-height: 48px; padding: 13px 14px; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
    .sim-actions { flex-direction: column; align-items: stretch; gap: 10px; }
    .sim-actions .button { width: 100%; min-height: 50px; }
+ }
+ @media (min-width: 601px) {
+   .game-grid.game-carousel { grid-auto-columns: minmax(0, 1fr); }
  }
  @media (max-width: 380px) {
    .shell { width: calc(100% - 28px); }
@@ -263,7 +269,7 @@
  </div>
  </section>
 
- <section class="games" id="games"><div class="intro-row"><div><div class="eyebrow">Обирай свій напрям</div><h2 class="section-title">Дві гри. <em>Реальні навички.</em></h2></div><p class="section-note">Приймай рішення, дивись на наслідки й навчайся знімати усвідомлено.</p></div><div class="game-grid game-grid-two">
+ <section class="games" id="games"><div class="intro-row"><div><div class="eyebrow">Обирай свій напрям</div><h2 class="section-title">Дві гри. <em>Реальні навички.</em></h2></div><p class="section-note">Приймай рішення, дивись на наслідки й навчайся знімати усвідомлено.</p></div><div class="game-grid game-grid-two game-carousel" aria-label="Список ігор">
 <article class="game-card"><div class="game-index">ГРА 01 · 7 РІВНІВ</div><div class="game-mark">◉</div><h3>Зйомка</h3><p>Світло, звук, плани, ракурси, фон, перебивки й робота з людьми — у практичних місіях.</p><p style="letter-spacing:5px;color:var(--lilac);font-size:12px">01 02 03 04 05 06 07</p><button class="play" data-game="street">Почати рівень 1 ↗</button></article>
 <article class="game-card"><div class="game-index">ГРА 02 · У РОЗРОБЦІ</div><div class="game-mark">▤</div><h3>Монтаж</h3><p>Ритм, склейки, звук, озвучення, музика, колір і збирання готового ролика.</p><p style="font-size:11px;color:var(--muted)">Спочатку створюємо гру про зйомку</p><button class="play" disabled>Скоро</button></article></div></section>
 
